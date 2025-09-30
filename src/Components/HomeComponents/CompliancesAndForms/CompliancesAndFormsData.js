@@ -4,7 +4,7 @@ export const compliancesAndFormsData = {
             id: 1,
             title: "Combined Account Opening Form",
             size: "3.199 MB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/combined_account_opening_form.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/Combined_Account_Opening_Form.pdf"
         },
         {
             id: 2,
@@ -28,7 +28,7 @@ export const compliancesAndFormsData = {
             id: 5,
             title: "Nomination Form",
             size: "378.125 KB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/Nominee.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/Nomination_Form.pdf"
         },
         {
             id: 6,
@@ -78,7 +78,7 @@ export const compliancesAndFormsData = {
             id: 7,
             title: "Policy on PMLA",
             size: "276 KB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy-on-PMLA.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy_on_PMLA.pdf"
         },
         {
             id: 8,
@@ -90,7 +90,7 @@ export const compliancesAndFormsData = {
             id: 9,
             title: "Policy Surveillance",
             size: "88 KB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy-Suerveillance.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy_Surveillance_DP.pdf"
         },
         {
             id: 10,
@@ -145,6 +145,18 @@ export const compliancesAndFormsData = {
             title: "Policy of Internal Control",
             size: "14 KB",
             viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy-of-Internal-Control.pdf"
+        },
+        {
+            id: 19,
+            title: "Code of Conduct Policy",
+            size: "348 KB",
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Code_of_conduct_polocy.pdf"
+        },
+        {
+            id: 20,
+            title: "SOP for Processing of Surveillance Alerts",
+            size: "142 KB",
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/SOP_FOR_PROCESSING_OF_SURVELLIANCE_ALERTS.pdf"
         }
     ],
     investorCharters: [
@@ -156,9 +168,9 @@ export const compliancesAndFormsData = {
         },
         {
             id: 2,
-            title: "Investor Charter for Depositories and Depository Participants - August 2025",
+            title: "Investor Charter for Depositories and Depository Participants - September 2025",
             size: "901 KB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/Charters/investor_charter_august_2025.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Charters/INVESTOR_CHARTER_SEPTEMBER-2025.pdf"
         }
     ],
     compliance: [
@@ -166,7 +178,7 @@ export const compliancesAndFormsData = {
             id: 1,
             title: "Schedule of Charges",
             size: "242 KB",
-            viewUrl: "/Image/CompliencesAndFormsDocuments/CompliancesData/schedule_of_charges.pdf"
+            viewUrl: "/Image/CompliencesAndFormsDocuments/CompliancesData/Schedule_of_Charges (1).pdf"
         },
         {
             id: 2,

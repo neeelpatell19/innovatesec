@@ -36,7 +36,7 @@ const InvestorCharters = () => {
                         <h2 className="text-center">For Depository Participants & Stock Brokers</h2>
                     </div>
                     <div className="InvestorChartersCardsContainer marginTop">
-                        <Row gutter={[16, 16]} className="w-100">
+                        <Row gutter={[16, 16]} className="w-100" style={{margin:"auto"}}>
                             {investorChartersData.map((item) => (
                                 <Col key={item.id} lg={12} md={12} xs={24}>
                                     <a

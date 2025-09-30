@@ -18,17 +18,17 @@ const NewsLetters = () => {
         const email = 'innovate95@rediffmail.com';
         const subject = 'Contact from Website';
         const body = 'Hello,\n\nI would like to get in touch with Innovate Securities.\n\n';
-        
+
         const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
+
         // Use window.open for better compatibility
         const emailWindow = window.open(mailtoLink, '_self');
-        
+
         // If window.open fails, try direct navigation
         if (!emailWindow) {
             window.location.href = mailtoLink;
         }
-        
+
         closeContactModal();
     };
 
@@ -180,18 +180,18 @@ const NewsLetters = () => {
                     <div style={{ display: 'grid', gap: 10, marginTop: 8 }}>
                         <a href="tel:07926474500" style={{ textDecoration: 'none' }}>
                             <button className="NewsletterButton" style={{ width: '100%' }} onClick={closeContactModal}>
-                                Call Now
+                                Call now: 079-2647-4500
                             </button>
                         </a>
-                        <a 
-                            href="mailto:innovate95@rediffmail.com?subject=Contact from Website&body=Hello,%0A%0AI would like to get in touch with Innovate Securities.%0A%0A" 
-                            target="_blank" 
+                        <a
+                            href="mailto:innovate95@rediffmail.com?subject=Contact from Website&body=Hello,%0A%0AI would like to get in touch with Innovate Securities.%0A%0A"
+                            target="_blank"
                             rel="noopener noreferrer"
                             style={{ textDecoration: 'none', width: '100%' }}
                             onClick={closeContactModal}
                         >
                             <button className="NewsletterButton secondary" style={{ width: '100%' }}>
-                                Email Us
+                                Email us: innovate95@rediffmail.com
                             </button>
                         </a>
                     </div>
