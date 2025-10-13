@@ -30,7 +30,7 @@ const Footer = () => {
       <div className="Container ">
         <div className="paddingSide marginTop marginBottom marginAuto">
           <Row gutter={[16, 16]} className="w-100">
-            <Col lg={12} md={8} sm={24} xs={24}>
+            <Col lg={6} md={8} sm={24} xs={24}>
               <div className="CompanyBrandingContainer paddingRight">
                 <div>
                   <h3>Innovate Securities Pvt. Ltd.</h3>
@@ -124,7 +124,7 @@ const Footer = () => {
                 ></iframe>
               </div>
             </Col>
-            <Col sm={24} style={{ width: "100%" }}>
+            <Col lg={6} md={12} sm={24} xs={24}>
               <div className="QRCodeContainer">
                 <div className="QRCodeSection">
                   <div className="QRCodeItem">

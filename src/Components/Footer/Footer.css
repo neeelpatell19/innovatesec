@@ -191,8 +191,8 @@
 }
 
 .QRCodeImage {
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -223,11 +223,15 @@
   .QRCodeSection {
     gap: 15px;
     justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .QRCodeImage {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
   }
 
   .QRCodeLabel {
@@ -242,15 +246,18 @@
   }
 
   .QRCodeSection {
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     justify-content: center;
     align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .QRCodeImage {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
   }
 
   .QRCodeContainer h3 {
