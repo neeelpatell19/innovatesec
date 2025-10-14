@@ -5,7 +5,6 @@ import NavData from "../Navigation/NavData";
 import { FaFacebook } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Footer = () => {
   const SocialMediaData = [
@@ -129,19 +128,19 @@ const Footer = () => {
                 <div className="QRCodeSection">
                   <div className="QRCodeItem">
                     <img
-                      src="/Image/upi-qr-code-DP.png"
-                      alt="DP UPI QR Code"
-                      className="QRCodeImage"
-                    />
-                    <p className="QRCodeLabel">DP</p>
-                  </div>
-                  <div className="QRCodeItem">
-                    <img
                       src="/Image/upi-qr-codee-BRO.png"
                       alt="Broking UPI QR Code"
                       className="QRCodeImage"
                     />
                     <p className="QRCodeLabel">Broking</p>
+                  </div>
+                  <div className="QRCodeItem">
+                    <img
+                      src="/Image/upi-qr-code-DP.png"
+                      alt="DP UPI QR Code"
+                      className="QRCodeImage"
+                    />
+                    <p className="QRCodeLabel">DP</p>
                   </div>
                 </div>
               </div>

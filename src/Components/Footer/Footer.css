@@ -176,10 +176,10 @@
 
 .QRCodeSection {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -223,15 +223,13 @@
   .QRCodeSection {
     gap: 15px;
     justify-content: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 400px;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
   }
 
   .QRCodeImage {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 
   .QRCodeLabel {
@@ -246,13 +244,10 @@
   }
 
   .QRCodeSection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 15px;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
-    margin: 0 auto;
+    flex-direction: column;
   }
 
   .QRCodeImage {
