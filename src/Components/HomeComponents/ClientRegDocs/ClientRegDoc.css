@@ -53,6 +53,36 @@
   font-size: 18px;
 }
 
+.note-section {
+  margin-top: 25px;
+  line-height: 1.6;
+}
+
+.note-section p {
+  color: #333;
+  margin-bottom: 12px;
+}
+
+
+.study-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.study-link {
+  color: #0a4abf;
+  font-size: 15px;
+  text-decoration: underline;
+  word-break: break-all; 
+}
+
+.study-link:hover {
+  color: #073a8a;
+}
+
 /* media queries section  */
 @media (max-width: 992px) {
   .download-grid {
