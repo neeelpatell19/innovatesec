@@ -1,63 +1,249 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./About.css";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { Row, Col } from "antd";
 import Directors from "../Directors/Directors";
 const About = () => {
-    const sectionRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        setIsVisible(true);
-                    }, 300);
-                }
-            },
-            {
-                threshold: 0.1,
-                rootMargin: '-20px 0px 0px 0px'
-            }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Observer callback for future animations
         }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "-20px 0px 0px 0px",
+      }
+    );
 
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    return (
-        <>
-        <div className="MainContainer marginTop" ref={sectionRef}>
-            <div className="Container">
-                <div className="paddingSide">
-                    <div className="CommonHeader">
-                        <div className="SectionTagLabelContainer" style={{ margin: "auto" }}>
-                            <div>
-                                <div className="flexVertically">
-                                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/AboutBrand.png" alt="About Innovate Securities Brand Icon - Trusted Financial Services" />
-                                </div>
-                                <div>
-                                    <p>About InnvoteSecurities</p>
-                                </div>
-                            </div>
-                        </div>
-                        <h2 className="text-center">Trusted by leaders from various industries</h2>
-                        {/* <div className="BtnContainer" style={{ margin: "auto" }}>
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <>
+      <div className="MainContainer marginTop" ref={sectionRef}>
+        <div className="Container">
+          <div className="paddingSide">
+            <div className="CommonHeader">
+              <div
+                className="SectionTagLabelContainer"
+                style={{ margin: "auto" }}
+              >
+                <div>
+                  <div className="flexVertically">
+                    <img
+                      src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/AboutBrand.png"
+                      alt="About Innovate Securities Brand Icon - Trusted Financial Services"
+                    />
+                  </div>
+                  <div>
+                    <p>About InnvoteSecurities</p>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="BtnContainer" style={{ margin: "auto" }}>
                             <button>Portfolio</button>
                         </div> */}
-                    </div>
-                    <div className="marginTop">
+            </div>
+            <div className="marginTop">
+              <div className="CommonHeader">
+                <h2 className="text-center">Escalation Matrix</h2>
+                <p className="text-center">
+                  Contact information for various departments and personnel
+                </p>
+              </div>
+              <div className="marginTop escalation-matrix-container">
+                <div className="escalation-table-wrapper">
+                  <table className="escalation-table">
+                    <thead>
+                      <tr>
+                        <th>Details of</th>
+                        <th>Contact Person</th>
+                        <th>Address</th>
+                        <th>Contact No.</th>
+                        <th>Email Id</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Customer care</td>
+                        <td>Meet V. Panchal</td>
+                        <td>
+                          1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
+                          Opp. ABC-III, Navrangpura, Ahmedabad - 380 009
+                        </td>
+                        <td>
+                          <a href="tel:07926421314">079-26421314</a>
+                        </td>
+                        <td>
+                          <a href="mailto:Innovate93@yahoo.co.in">
+                            Innovate93@yahoo.co.in
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Head of Customer care</td>
+                        <td>Hiten Shah</td>
+                        <td>
+                          1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
+                          Opp. ABC-III, Navrangpura, Ahmedabad - 380 009
+                        </td>
+                        <td>
+                          <a href="tel:07926474514">079-26474514</a>
+                        </td>
+                        <td>
+                          <a href="mailto:ispl@innovatesec.com">
+                            ispl@innovatesec.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Compliance Officer-Broking</td>
+                        <td>Pimal K. Panchal</td>
+                        <td>
+                          1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
+                          Opp. ABC-III, Navrangpura, Ahmedabad - 380 009
+                        </td>
+                        <td>
+                          <a href="tel:07926474522">079-26474522</a>
+                        </td>
+                        <td>
+                          <a href="mailto:Innovate95@rediffmail.com">
+                            Innovate95@rediffmail.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Compliance Officer-Depository Operation</td>
+                        <td>Mitesh N. Shah</td>
+                        <td>
+                          1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
+                          Opp. ABC-III, Navrangpura, Ahmedabad - 380 009
+                        </td>
+                        <td>
+                          <a href="tel:07926474513">079-26474513</a>
+                        </td>
+                        <td>
+                          <a href="mailto:Innovate95@rediffmail.com">
+                            Innovate95@rediffmail.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CEO</td>
+                        <td>Amar M. Parikh</td>
+                        <td>
+                          1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
+                          Opp. ABC-III, Navrangpura, Ahmedabad - 380 009
+                        </td>
+                        <td>
+                          <a href="tel:07926561106">079-26561106</a>
+                        </td>
+                        <td>
+                          <a href="mailto:innovatescrap@gmail.com">
+                            innovatescrap@gmail.com
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div className="marginTop">
+              <div className="CommonHeader">
+                <h2 className="text-center">Compliance Officers</h2>
+                <p className="text-center">
+                  Names and contact details of all Key Managerial Personnel
+                  including the Compliance Officer
+                </p>
+              </div>
+              <div className="marginTop escalation-matrix-container">
+                <div className="escalation-table-wrapper">
+                  <table className="escalation-table">
+                    <thead>
+                      <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of the Individual</th>
+                        <th>Designation</th>
+                        <th>Mobile Number</th>
+                        <th>Email Id</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Amar M. Parikh</td>
+                        <td>Managing Director - CEO</td>
+                        <td>
+                          <a href="tel:9825032652">9825032652</a>
+                        </td>
+                        <td>
+                          <a href="mailto:innovatescrap@gmail.com">
+                            innovatescrap@gmail.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Pimal K. Panchal</td>
+                        <td>Executive Director - Compliance Officer</td>
+                        <td>
+                          <a href="tel:9429893549">9429893549</a>
+                        </td>
+                        <td>
+                          <a href="mailto:Innovate95@rediffmail.com">
+                            Innovate95@rediffmail.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Kashyap R. Mehta</td>
+                        <td>Director- C.S.</td>
+                        <td>
+                          <a href="tel:9825015581">9825015581</a>
+                        </td>
+                        <td>
+                          <a href="mailto:kashyaprmehta@hotmail.com">
+                            kashyaprmehta@hotmail.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Amit P. Shah</td>
+                        <td>Director</td>
+                        <td>
+                          <a href="tel:9879506993">9879506993</a>
+                        </td>
+                        <td>
+                          <a href="mailto:Amitpshah83@gmail.com">
+                            Amitpshah83@gmail.com
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {/* <div className="marginTop">
                         <div className="ImagesGridAnimation">
                             <Row gutter={[8, 8]}>
                                 <Col lg={6} md={6} sm={6} xs={6}>
@@ -89,37 +275,76 @@ const About = () => {
                                 </Col>
                             </Row>
                         </div>
-                    </div>
-                    <div className="marginTop">
-                        <div className="CommonHeader">
-                            <h2 className="text-center">About Brand</h2>
-                            <p className="text-center">Welcome to Innovate Securities Pvt. Ltd. (ISPL)</p>
-                        </div>
-                        <div className="CommonHeader marginTop text-center">
-                            <p><b>Innovate Securities Pvt. Ltd. (ISPL)</b>, established in <b>October 1993</b>, brings over <b>30 years of expertise</b> in the <b>Indian capital markets</b>. We offer a comprehensive suite of financial services, including <b>Shares & Securities</b>, <b>Mutual Funds</b>, <b>Government & Corporate Bonds</b>, <b>Corporate Fixed Deposits (FDs)</b>, and <b>Non-Convertible Debentures (NCDs)</b>, designed to meet the diverse needs of our clients.</p>
-                            <p>As corporate members of the <b>National Stock Exchange (NSE)</b>, covering the <b>Capital Market & F&O segments</b>, and the <b>Bombay Stock Exchange (BSE)</b>, alongside being a <b>Depository Participant</b> with <b>Central Depository Services Limited (CDSL)</b>, we ensure seamless access to a wide range of investment opportunities. Our diverse clientele includes <b>HNIs</b>, <b>MNIs</b>, <b>Family and Religious Trusts</b>, <b>Corporates</b>, <b>Cooperative Banks</b>, and individual investors, all of whom benefit from bespoke financial solutions tailored to their unique objectives.</p>
-                            <p>Our <b>leadership team</b> is committed to delivering <b>innovative, client-centric services</b> while fostering <b>long-term relationships</b> grounded in <b>trust, professionalism, and integrity</b>. At ISPL, we are dedicated to helping clients achieve <b>sustainable financial success</b> with <b>expert guidance</b> and <b>personalized support</b>.</p>
-                            {/* <p>Thank you for choosing <b>Innovate Securities Pvt. Ltd.</b>. We look forward to being a <b>trusted partner</b> in your financial journey.</p> */}
-                        </div>
-                    </div>
-                    <div className="marginTop">
-                        <div className="BackGroundImageWithContent">
-                            <div className="ContentContainerAboutUs ">
-                                <BiSolidQuoteLeft className="white" />
-
-                                <h2 className="white">Our leadership delivers innovative, client-focused services for sustainable financial success.</h2>
-                                <br />
-                                <p className="white">Thank you for choosing <b>Innovate Securities Pvt. Ltd.</b> We look forward to being a <b>trusted partner</b> in your financial journey.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div> */}
+            <div className="marginTop">
+              <div className="CommonHeader">
+                <h2 className="text-center">About Brand</h2>
+                <p className="text-center">
+                  Welcome to Innovate Securities Pvt. Ltd. (ISPL)
+                </p>
+              </div>
+              <div className="CommonHeader marginTop text-center">
+                <p>
+                  <b>Innovate Securities Pvt. Ltd. (ISPL)</b>, established in{" "}
+                  <b>October 1993</b>, brings over <b>30 years of expertise</b>{" "}
+                  in the <b>Indian capital markets</b>. We offer a comprehensive
+                  suite of financial services, including{" "}
+                  <b>Shares & Securities</b>, <b>Mutual Funds</b>,{" "}
+                  <b>Government & Corporate Bonds</b>,{" "}
+                  <b>Corporate Fixed Deposits (FDs)</b>, and{" "}
+                  <b>Non-Convertible Debentures (NCDs)</b>, designed to meet the
+                  diverse needs of our clients.
+                </p>
+                <p>
+                  As corporate members of the{" "}
+                  <b>National Stock Exchange (NSE)</b>, covering the{" "}
+                  <b>Capital Market & F&O segments</b>, and the{" "}
+                  <b>Bombay Stock Exchange (BSE)</b>, alongside being a{" "}
+                  <b>Depository Participant</b> with{" "}
+                  <b>Central Depository Services Limited (CDSL)</b>, we ensure
+                  seamless access to a wide range of investment opportunities.
+                  Our diverse clientele includes <b>HNIs</b>, <b>MNIs</b>,{" "}
+                  <b>Family and Religious Trusts</b>, <b>Corporates</b>,{" "}
+                  <b>Cooperative Banks</b>, and individual investors, all of
+                  whom benefit from bespoke financial solutions tailored to
+                  their unique objectives.
+                </p>
+                <p>
+                  Our <b>leadership team</b> is committed to delivering{" "}
+                  <b>innovative, client-centric services</b> while fostering{" "}
+                  <b>long-term relationships</b> grounded in{" "}
+                  <b>trust, professionalism, and integrity</b>. At ISPL, we are
+                  dedicated to helping clients achieve{" "}
+                  <b>sustainable financial success</b> with{" "}
+                  <b>expert guidance</b> and <b>personalized support</b>.
+                </p>
+                {/* <p>Thank you for choosing <b>Innovate Securities Pvt. Ltd.</b>. We look forward to being a <b>trusted partner</b> in your financial journey.</p> */}
+              </div>
             </div>
+            <div className="marginTop">
+              <div className="BackGroundImageWithContent">
+                <div className="ContentContainerAboutUs ">
+                  <BiSolidQuoteLeft className="white" />
+
+                  <h2 className="white">
+                    Our leadership delivers innovative, client-focused services
+                    for sustainable financial success.
+                  </h2>
+                  <br />
+                  <p className="white">
+                    Thank you for choosing <b>Innovate Securities Pvt. Ltd.</b>{" "}
+                    We look forward to being a <b>trusted partner</b> in your
+                    financial journey.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <Directors />
-        
-        </>
-    );
+      </div>
+      <Directors />
+    </>
+  );
 };
 
 export default About;
