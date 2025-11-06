@@ -4,7 +4,8 @@ import HomeAbout from './HomeAbout/HomeAbout'
 import ServicesHome from './ServicesHome/ServicesHome'
 import ProgressReach from './ProgressReachComponent/ProgressReach'
 import InvestorCharters from './InvestorCharters/InvestorCharters'
-import ListOfUpstream from './ListOfUpstream /ListOfUpstream'
+import ClientRegDocs from './ClientRegDocs/ClientRegDocs'
+
 const HomeComponents = () => {
     return (
         <>
@@ -12,7 +13,8 @@ const HomeComponents = () => {
             <ServicesHome />
             <HomeAbout />
             <InvestorCharters />
-            <ListOfUpstream />
+            <ClientRegDocs />
+            {/* <ListOfUpstream /> */}
             {/* <ProgressReach /> */}
         </>
     )

@@ -40,6 +40,7 @@ function App() {
           <Route path='/online-desk' element={<OnlineDesk />} />
           <Route path='/compliances-and-forms' element={<CompliancesAndForms />} />
         </Routes>
+        
         <NewsLetters />
         <Footer />
       </BrowserRouter>
