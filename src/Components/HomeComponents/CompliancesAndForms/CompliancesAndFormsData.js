@@ -157,6 +157,12 @@ export const compliancesAndFormsData = {
             title: "SOP for Processing of Surveillance Alerts",
             size: "142 KB",
             viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/SOP_FOR_PROCESSING_OF_SURVELLIANCE_ALERTS.pdf"
+        },
+        {
+            id: 21,
+            title: "Policy on Good Till Cancelled-Good Till Triggered orders",
+            size: "248 KB",
+            viewUrl: "/Image/CompliencesAndFormsDocuments/Policies/Policy-on-Good-Till-Cancelled-Good-Till-Triggered-orders.pdf"
         }
     ],
     investorCharters: [
