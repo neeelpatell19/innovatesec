@@ -19,7 +19,7 @@
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   max-width: 1200px;
-  width: 95%;
+  width: 69%;
   height: 90vh;
   overflow: hidden;
   position: relative;
@@ -378,7 +378,119 @@
   font-size: 12px;
   white-space: nowrap;
 }
+/* Image Overlay */
+.image-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+  padding: 10px; /* small padding for smaller screens */
+}
 
+.image-box {
+  position: relative;
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 69%;
+  max-width: 1200px;
+  height: 90vh;
+  max-height: 900px;
+  overflow: hidden;
+  animation: slideIn 0.4s ease-out;
+}
+
+.first-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: fill;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  font-size: 28px;
+  color: black;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.image-close-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .image-box {
+    width: 90%;
+    height: 80vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-box {
+    width: 95%;
+    height: 70vh;
+  }
+
+  .image-close-btn {
+    top: 8px;
+    right: 8px;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-box {
+    width: 95vw;
+    max-height: 60vh;
+    border-radius: 12px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center ;
+    box-shadow: none;
+  }
+  .first-image{
+    width: 96vw;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    object-position: 50% 50%;
+  }
+    .image-close-btn {
+        top: 18px;
+        right: 16px;
+        font-size: 26px;
+        width: 30px;
+        height: 30px;
+}
+}
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
