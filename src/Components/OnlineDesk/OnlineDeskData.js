@@ -9,7 +9,7 @@ export const onlineDeskItems = [
         title: "Client Registration Documents (Rights & Obligations, Risk Disclosure Document, Do's & Don'ts) in Vernacular Language",
         cta: "Go to the website",
         href: "https://www.nseindia.com/trade/members-client-registration-documents",
-        logo: "/Image/OnlineDeskImages/InnovateDesk1.png"
+        logo: "Image/OnlineDeskImages/InnovateLogo.gif"
     },
     {
         title: "Securities and Exchange Board of India",
