@@ -3,7 +3,7 @@ export const onlineDeskItems = [
         title: "Open Your Account Online",
         cta: "Go to the website",
         href: "https://bo.innovatesec.com/EKYC/EKYCAccountOpening",
-        logo: "/Image/OnlineDeskImages/InnovateDesk1.png"
+        logo: "/Image/OnlineDeskImages/InnovateLogo.gif"
     },
     {
         title: "Client Registration Documents (Rights & Obligations, Risk Disclosure Document, Do's & Don'ts) in Vernacular Language",
