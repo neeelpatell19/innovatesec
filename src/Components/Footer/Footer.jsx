@@ -82,8 +82,8 @@ const Footer = () => {
                         <Link to={item.path}>{item.name}</Link>
                       </li>
                     ))}
-                    <li><a href="/Image/FooterDocs/Disclaimer.pdf" target="_blank">Disclaimer</a></li>
-                    <li><a href="/Image/FooterDocs/Privacy_Policy.pdf" target="_blank">Privacy Policy</a></li>
+                    <li><Link to="/disclaimer">Disclaimer</Link></li>
+                    <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                   </ul>
                 
                 </div>

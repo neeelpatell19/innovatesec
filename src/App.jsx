@@ -15,6 +15,8 @@ import Modal from './Components/Modal/Modal'
 import Directors from './Components/Directors/Directors'
 import OnlineDesk from './Components/OnlineDesk/OnlineDesk'
 import CompliancesAndForms from './Components/HomeComponents/CompliancesAndForms/CompliancesAndForms'
+import Disclaimer from './Components/Disclaimer/Disclaimer'
+import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -39,6 +41,8 @@ function App() {
           <Route path='/directors' element={<Directors />} />
           <Route path='/online-desk' element={<OnlineDesk />} />
           <Route path='/compliances-and-forms' element={<CompliancesAndForms />} />
+          <Route path='/disclaimer' element={<Disclaimer />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         </Routes>
         
         <NewsLetters />
