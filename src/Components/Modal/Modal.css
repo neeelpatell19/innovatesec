@@ -647,9 +647,72 @@
 
 .advisory-modal-content .advisiory-content {
   padding: 0;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .advisory-modal-content .advisiory-list li {
   font-size: 15px;
   margin-bottom: 15px;
+}
+
+/* Advisory Modal Mobile Responsive */
+@media (max-width: 768px) {
+  .advisory-modal-content {
+    width: 95%;
+    height: 95vh;
+  }
+
+  .advisory-modal-content .modal-body {
+    padding: 15px;
+  }
+
+  .advisory-modal-content .advisiory-title {
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+
+  .advisory-modal-content .danger {
+    font-size: 18px;
+  }
+
+  .advisory-modal-content .advisiory-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .advisory-modal-content .advisiory-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    line-height: 1.6;
+  }
+
+  .advisory-modal-content .advisiory-list li::before {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .advisory-modal-content {
+    width: 98%;
+  }
+
+  .advisory-modal-content .modal-body {
+    padding: 10px;
+  }
+
+  .advisory-modal-content .advisiory-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .advisory-modal-content .danger {
+    font-size: 16px;
+  }
+
+  .advisory-modal-content .advisiory-list li {
+    font-size: 13px;
+    padding-left: 22px;
+  }
 } 
