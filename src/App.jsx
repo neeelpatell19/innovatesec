@@ -18,6 +18,7 @@ import CompliancesAndForms from './Components/HomeComponents/CompliancesAndForms
 import Disclaimer from './Components/Disclaimer/Disclaimer'
 import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy'
 import AdvisioryForInvestors from './Components/AdvisioryForInvestors/AdvisioryForInvestors'
+import InvestorComplaints from './Components/InvestorComplaints/InvestorComplaints'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -45,6 +46,7 @@ function App() {
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/advisiory-for-investors' element={<AdvisioryForInvestors />} />
+          <Route path='/investor-complaints' element={<InvestorComplaints />} />
         </Routes>
         
         <NewsLetters />

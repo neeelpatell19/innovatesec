@@ -1,0 +1,68 @@
+import React, { useEffect } from "react";
+import "./InvestorComplaints.css";
+import { FaFilePdf } from "react-icons/fa";
+
+const InvestorComplaints = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const complaintsData = [
+    { id: 1, month: "June 2025", pdfLink: "/InvestorComplaints/JUNE.pdf" },
+    { id: 2, month: "July 2025", pdfLink: "/InvestorComplaints/JULY.pdf" },
+    { id: 3, month: "August 2025", pdfLink: "/InvestorComplaints/AUG.pdf" },
+    { id: 4, month: "September 2025", pdfLink: "/InvestorComplaints/SEP.pdf" },
+    { id: 5, month: "October 2025", pdfLink: "/InvestorComplaints/OCT.pdf" },
+    { id: 6, month: "November 2025", pdfLink: "/InvestorComplaints/NEV.pdf" },
+  ];
+
+  return (
+    <div className="HomeAboutContainer">
+      <div className="MainContainer">
+        <div className="Container">
+          <div className="paddingSide padding-side">
+            <div className="CommonHeader padding30">
+              <h2 className="text-center">Investor Complaints Disclosure</h2>
+            </div>
+
+            <div className="complaints-content">
+             
+
+              <div className="complaints-table-wrapper">
+                <table className="complaints-table">
+                  <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Month & Year</th>
+                      <th>Download</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {complaintsData.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.month}</td>
+                        <td>
+                          <a
+                            href={item.pdfLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="download-link"
+                          >
+                            <FaFilePdf />
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InvestorComplaints;
