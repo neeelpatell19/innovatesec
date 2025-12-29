@@ -6,19 +6,13 @@ import AdvisioryForInvestors from "../AdvisioryForInvestors/AdvisioryForInvestor
 const Modal = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(true); // modal shows first
-  const [showImage, setShowImage] = useState(false); // image hidden initially
-  const [showAdvisory, setShowAdvisory] = useState(false); // advisory shows last
+  const [showAdvisory, setShowAdvisory] = useState(false); // advisory shows second
+  const [showImage, setShowImage] = useState(false); // image shows third
   const [showScrollArrow, setShowScrollArrow] = useState(false);
   const modalBodyRef = useRef(null);
 
   const handleModalClose = () => {
     setIsOpen(false);
-    setShowImage(true);
-  };
-
-
-  const handleImageClose = () => {
-    setShowImage(false);
     // Only show advisory modal if not on the advisory page
     if (location.pathname !== '/advisiory-for-investors') {
       setShowAdvisory(true);
@@ -27,6 +21,11 @@ const Modal = () => {
 
   const handleAdvisoryClose = () => {
     setShowAdvisory(false);
+    setShowImage(true);
+  };
+
+  const handleImageClose = () => {
+    setShowImage(false);
   };
 
 
