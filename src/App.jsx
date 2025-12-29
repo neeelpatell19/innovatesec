@@ -17,6 +17,7 @@ import OnlineDesk from './Components/OnlineDesk/OnlineDesk'
 import CompliancesAndForms from './Components/HomeComponents/CompliancesAndForms/CompliancesAndForms'
 import Disclaimer from './Components/Disclaimer/Disclaimer'
 import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy'
+import AdvisioryForInvestors from './Components/AdvisioryForInvestors/AdvisioryForInvestors'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='/compliances-and-forms' element={<CompliancesAndForms />} />
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path='/advisory-for-investors' element={<AdvisioryForInvestors />} />
         </Routes>
         
         <NewsLetters />
