@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AdvisioryForInvestors.css";
 
 const AdvisioryForInvestors = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="HomeAboutContainer">
       <div className="MainContainer ">
