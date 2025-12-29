@@ -30,8 +30,8 @@ function App() {
   return (
     <>
       {contextHolder}
-      <Modal />
       <BrowserRouter>
+        <Modal />
         <Navbar />
         <Routes>
           <Route path='/' element={<HomeComponents />} />
@@ -44,7 +44,7 @@ function App() {
           <Route path='/compliances-and-forms' element={<CompliancesAndForms />} />
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-          <Route path='/advisory-for-investors' element={<AdvisioryForInvestors />} />
+          <Route path='/advisiory-for-investors' element={<AdvisioryForInvestors />} />
         </Routes>
         
         <NewsLetters />

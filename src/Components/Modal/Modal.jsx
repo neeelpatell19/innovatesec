@@ -1,24 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "./Modal.css";
+import AdvisioryForInvestors from "../AdvisioryForInvestors/AdvisioryForInvestors";
 
 const Modal = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(true); // modal shows first
   const [showImage, setShowImage] = useState(false); // image hidden initially
+  const [showAdvisory, setShowAdvisory] = useState(false); // advisory shows last
   const [showScrollArrow, setShowScrollArrow] = useState(false);
   const modalBodyRef = useRef(null);
 
-  // ✅ Close modal → show image
   const handleModalClose = () => {
     setIsOpen(false);
     setShowImage(true);
   };
 
-  // ✅ Close image → hide it
+
   const handleImageClose = () => {
     setShowImage(false);
+    // Only show advisory modal if not on the advisory page
+    if (location.pathname !== '/advisiory-for-investors') {
+      setShowAdvisory(true);
+    }
   };
 
-  // ✅ Scroll arrow logic
+  const handleAdvisoryClose = () => {
+    setShowAdvisory(false);
+  };
+
+
   useEffect(() => {
     if (isOpen && modalBodyRef.current) {
       const checkScroll = () => {
@@ -50,7 +61,29 @@ const Modal = () => {
     }
   };
 
-  // ✅ Show image overlay
+  if (showAdvisory) {
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content advisory-modal-content">
+          <div className="modal-header">
+            <h2>Advisory for Investors</h2>
+            <button className="modal-close" onClick={handleAdvisoryClose}>
+              ×
+            </button>
+          </div>
+          <div className="modal-body" style={{ display: 'block', gridTemplateColumns: '1fr' }}>
+            <AdvisioryForInvestors />
+          </div>
+          <div className="modal-footer">
+            <button className="modal-button" onClick={handleAdvisoryClose}>
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (showImage) {
     return (
       <div className="image-loader">
@@ -68,7 +101,6 @@ const Modal = () => {
     );
   }
 
-  // ✅ Show modal
   if (!isOpen) return null;
 
   return (

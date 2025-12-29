@@ -594,4 +594,62 @@
   .scroll-text {
     font-size: 10px;
   }
+}
+
+/* Advisory Modal Styles */
+.advisory-modal-content {
+  max-width: 1200px;
+  width: 69%;
+  height: 90vh;
+}
+
+.advisory-modal-content .modal-body {
+  padding: 20px 24px;
+}
+
+.advisory-modal-content .HomeAboutContainer,
+.advisory-modal-content .MainContainer {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.advisory-modal-content .Container {
+  padding: 0;
+  max-width: 100%;
+}
+
+.advisory-modal-content .paddingSide,
+.advisory-modal-content .padding-side {
+  padding: 0 !important;
+}
+
+.advisory-modal-content .padding30 {
+  padding-top: 0 !important;
+}
+
+.advisory-modal-content .CommonHeader h2 {
+  display: none;
+}
+
+.advisory-modal-content .advisiory-title {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.advisory-modal-content .danger {
+  font-size: 22px;
+  /* text-align: left; */
+  /* left: 0px; */
+  /* position: absolute; */
+  padding-left: 0px;
+}
+
+.advisory-modal-content .advisiory-content {
+  padding: 0;
+}
+
+.advisory-modal-content .advisiory-list li {
+  font-size: 15px;
+  margin-bottom: 15px;
 } 

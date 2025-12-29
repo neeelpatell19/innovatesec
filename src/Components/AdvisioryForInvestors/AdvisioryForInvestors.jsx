@@ -66,7 +66,7 @@ const AdvisioryForInvestors = () => {
                     Check messages sent by Exchanges on a weekly basis regarding funds and securities balances reported by the trading member, compare it with the weekly statement of account sent by broker and immediately raise a concern to the exchange if you notice a discrepancy.
                 </li>
                 <li>
-                    Please do not transfer funds, for the purposes of trading to anyone, including an authorizedpersonor an associateofthebroker,otherthana SEBI registered Stockbroker.
+                    Please do not transfer funds, for the purposes of trading to anyone, including an authorized person or an associate of the broker , other than a SEBI registered Stockbroker.
                 </li>
               </ul>
             </div>
