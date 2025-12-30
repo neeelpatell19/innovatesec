@@ -16,6 +16,9 @@ const Modal = () => {
     // Only show advisory modal if not on the advisory page
     if (location.pathname !== '/advisiory-for-investors') {
       setShowAdvisory(true);
+    } else {
+      // On advisory page, skip advisory modal and go directly to image
+      setShowImage(true);
     }
   };
 

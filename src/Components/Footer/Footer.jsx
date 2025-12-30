@@ -84,7 +84,7 @@ const Footer = () => {
                     ))}
                     <li><Link to="/disclaimer">Disclaimer</Link></li>
                     <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-                    <li><Link to="/advisiory-for-investors">Advisory for Investors</Link></li>
+                    <li><Link to="/advisiory-for-investors">Advisiory for Investors</Link></li>
                     <li><Link to="/investor-complaints">Investor Complaints</Link></li>
                   </ul>
                 
