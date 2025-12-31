@@ -94,6 +94,7 @@ const Modal = () => {
             src="/Image/modelImage/innovatesecModel.jpg"
             alt="First Screen"
             className="first-image"
+            loading="eager"
           />
           <button className="image-close-btn" onClick={handleImageClose}>
             ×
