@@ -47,7 +47,7 @@ const Navbar = () => {
         
         resizeTimeoutRef.current = setTimeout(() => {
             const wasMobile = isMobile;
-            const nowMobile = window.innerWidth <= 768;
+            const nowMobile = window.innerWidth <= 1016;
             
             setIsMobile(nowMobile);
             
@@ -91,7 +91,7 @@ const Navbar = () => {
     // Single useEffect for all event listeners
     useEffect(() => {
         // Initial check
-        setIsMobile(window.innerWidth <= 768);
+        setIsMobile(window.innerWidth <= 1016);
         lastScrollYRef.current = window.scrollY;
 
         // Add listeners with passive flag for better performance

@@ -328,7 +328,7 @@
     color: #000069;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1016px) {
     .NavigationContainer {
         padding: 10px 10px;
     }
