@@ -395,7 +395,9 @@
   align-items: center;
   z-index: 9999;
   animation: fadeIn 0.3s ease-out;
-  padding: 10px; /* small padding for smaller screens */
+  width: 100vw;
+  height: 100vh;
+  /* padding: 10px; small padding for smaller screens */
 }
 
 .image-box {
