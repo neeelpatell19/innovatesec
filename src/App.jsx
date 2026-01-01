@@ -46,7 +46,7 @@ function App() {
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/advisiory-for-investors' element={<AdvisioryForInvestors />} />
-          <Route path='/investor-complaints' element={<InvestorComplaints />} />
+          <Route path='/investor-complaints-disclosure' element={<InvestorComplaints />} />
         </Routes>
         
         <NewsLetters />
