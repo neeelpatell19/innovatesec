@@ -20,8 +20,24 @@ const Navbar = () => {
     const dropdownTimeoutRef = useRef(null);
     const resizeTimeoutRef = useRef(null);
 
-    const openContactModal = () => setIsContactOpen(true);
+    const openContactModal = () => {
+        // Close drawer if open on mobile
+        if (mobileDrawerOpen) {
+            setMobileDrawerOpen(false);
+        }
+        setIsContactOpen(true);
+    };
+    
     const closeContactModal = () => setIsContactOpen(false);
+
+    // Close drawer and reset accordion state
+    const closeMobileDrawer = useCallback(() => {
+        setMobileDrawerOpen(false);
+        // Reset accordion state when drawer closes
+        setTimeout(() => {
+            setMobileAccordionOpen(null);
+        }, 300); // Wait for drawer close animation
+    }, []);
 
     // Debounced resize handler to prevent excessive calls
     const handleResize = useCallback(() => {
@@ -30,9 +46,17 @@ const Navbar = () => {
         }
         
         resizeTimeoutRef.current = setTimeout(() => {
-            setIsMobile(window.innerWidth <= 768);
+            const wasMobile = isMobile;
+            const nowMobile = window.innerWidth <= 768;
+            
+            setIsMobile(nowMobile);
+            
+            // Close drawer if transitioning from mobile to desktop
+            if (wasMobile && !nowMobile && mobileDrawerOpen) {
+                closeMobileDrawer();
+            }
         }, 150);
-    }, []);
+    }, [isMobile, mobileDrawerOpen, closeMobileDrawer]);
 
     // Optimized scroll handler using requestAnimationFrame
     const handleScroll = useCallback(() => {
@@ -91,13 +115,42 @@ const Navbar = () => {
         };
     }, [handleScroll, handleResize]);
 
+    // Lock body scroll when drawer is open on mobile
+    useEffect(() => {
+        if (mobileDrawerOpen && isMobile) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        };
+    }, [mobileDrawerOpen, isMobile]);
+
     const handleMobileNavClick = useCallback((path) => {
-        setMobileDrawerOpen(false);
-        if (path === "/") {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        // Close accordion first
+        setMobileAccordionOpen(null);
+        
+        // Close drawer with slight delay for external links
+        if (path.startsWith('http')) {
+            setTimeout(() => {
+                setMobileDrawerOpen(false);
+            }, 100);
+        } else {
+            setMobileDrawerOpen(false);
+            if (path === "/") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         }
     }, []);
 
@@ -135,13 +188,15 @@ const Navbar = () => {
                 </div>
             }
             placement="right"
-            onClose={() => setMobileDrawerOpen(false)}
+            onClose={closeMobileDrawer}
             open={mobileDrawerOpen}
             width={280}
             classNames={{
                 header: 'custom-drawer-header',
                 body: 'custom-drawer-body'
             }}
+            destroyOnClose={false}
+            maskClosable={true}
         >
             <div className="NavLinksContainerMobile">
                 {NavData.map((item) => (
