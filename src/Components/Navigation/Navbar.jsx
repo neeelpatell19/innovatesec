@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./Navbar.css";
 import NavData from "./NavData";
 import { Link } from "react-router-dom";
@@ -7,330 +7,251 @@ import { MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
     const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
     const [hasScrolled, setHasScrolled] = useState(false);
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isContactOpen, setIsContactOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [mobileAccordionOpen, setMobileAccordionOpen] = useState(null);
-    const [dropdownTimeout, setDropdownTimeout] = useState(null);
+    
+    // Use refs instead of state for values that don't need to trigger re-renders
+    const lastScrollYRef = useRef(0);
+    const ticking = useRef(false);
+    const dropdownTimeoutRef = useRef(null);
+    const resizeTimeoutRef = useRef(null);
 
     const openContactModal = () => setIsContactOpen(true);
     const closeContactModal = () => setIsContactOpen(false);
 
-    useEffect(() => {
-        const checkMobile = () => {
+    // Debounced resize handler to prevent excessive calls
+    const handleResize = useCallback(() => {
+        if (resizeTimeoutRef.current) {
+            clearTimeout(resizeTimeoutRef.current);
+        }
+        
+        resizeTimeoutRef.current = setTimeout(() => {
             setIsMobile(window.innerWidth <= 768);
-        };
+        }, 150);
+    }, []);
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
+    // Optimized scroll handler using requestAnimationFrame
+    const handleScroll = useCallback(() => {
+        if (!ticking.current) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+                const scrollDifference = currentScrollY - lastScrollYRef.current;
 
-        const controlNavbar = () => {
-            const currentScrollY = window.scrollY;
+                // Batch state updates
+                if (currentScrollY > 100) {
+                    if (!hasScrolled) setHasScrolled(true);
+                    
+                    // Only update visibility if scroll direction changed significantly
+                    if (scrollDifference > 5 && isVisible) {
+                        setIsVisible(false);
+                    } else if (scrollDifference < -5 && !isVisible) {
+                        setIsVisible(true);
+                    }
+                } else {
+                    if (hasScrolled) setHasScrolled(false);
+                    if (!isVisible) setIsVisible(true);
+                }
 
-            // Check if scrolled past 100px for shadow effect
-            if (currentScrollY > 100) {
-                setHasScrolled(true);
-            } else {
-                setHasScrolled(false);
-            }
+                lastScrollYRef.current = currentScrollY;
+                ticking.current = false;
+            });
 
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling down and past 100px
-                setIsVisible(false);
-            } else if (currentScrollY < lastScrollY) {
-                // Scrolling up
-                setIsVisible(true);
-            }
+            ticking.current = true;
+        }
+    }, [hasScrolled, isVisible]);
 
-            setLastScrollY(currentScrollY);
-        };
+    // Single useEffect for all event listeners
+    useEffect(() => {
+        // Initial check
+        setIsMobile(window.innerWidth <= 768);
+        lastScrollYRef.current = window.scrollY;
 
-        window.addEventListener('scroll', controlNavbar);
+        // Add listeners with passive flag for better performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleResize, { passive: true });
 
         // Cleanup
         return () => {
-            window.removeEventListener('scroll', controlNavbar);
-            window.removeEventListener('resize', checkMobile);
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
+            
+            if (dropdownTimeoutRef.current) {
+                clearTimeout(dropdownTimeoutRef.current);
+            }
+            if (resizeTimeoutRef.current) {
+                clearTimeout(resizeTimeoutRef.current);
+            }
+            if (ticking.current) {
+                ticking.current = false;
+            }
         };
-    }, [lastScrollY]);
+    }, [handleScroll, handleResize]);
 
-    const handleMobileNavClick = (path) => {
+    const handleMobileNavClick = useCallback((path) => {
         setMobileDrawerOpen(false);
-        // Scroll to top if it's the home page
         if (path === "/") {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
-    };
+    }, []);
 
-    const handleMobileAccordionToggle = (itemId) => {
-        setMobileAccordionOpen(mobileAccordionOpen === itemId ? null : itemId);
-    };
+    const handleMobileAccordionToggle = useCallback((itemId) => {
+        setMobileAccordionOpen(prev => prev === itemId ? null : itemId);
+    }, []);
 
-    const handleDropdownMouseEnter = (itemId) => {
-        if (dropdownTimeout) {
-            clearTimeout(dropdownTimeout);
-            setDropdownTimeout(null);
+    const handleDropdownMouseEnter = useCallback((itemId) => {
+        if (dropdownTimeoutRef.current) {
+            clearTimeout(dropdownTimeoutRef.current);
+            dropdownTimeoutRef.current = null;
         }
         setActiveDropdown(itemId);
-    };
+    }, []);
 
-    const handleDropdownMouseLeave = () => {
-        const timeout = setTimeout(() => {
+    const handleDropdownMouseLeave = useCallback(() => {
+        if (dropdownTimeoutRef.current) {
+            clearTimeout(dropdownTimeoutRef.current);
+        }
+        
+        dropdownTimeoutRef.current = setTimeout(() => {
             setActiveDropdown(null);
-        }, 150); // Small delay to allow moving to dropdown menu
-        setDropdownTimeout(timeout);
-    };
+        }, 200); // Increased from 150ms for better UX
+    }, []);
 
     const renderMobileDrawer = () => (
         <Drawer
-            title={null}
+            title={
+                <div className="mobile-drawer-header">
+                    <img
+                        src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/InnovateLogoAddSince.png"
+                        alt="Innovate Securities Logo"
+                        style={{ width: '160px' }}
+                    />
+                </div>
+            }
             placement="right"
             onClose={() => setMobileDrawerOpen(false)}
             open={mobileDrawerOpen}
             width={280}
-            styles={{
-                body: { padding: '20px 0' },
-                header: {
-                    borderBottom: '1px solid #f0f0f0',
-                    padding: '16px 24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                }
+            classNames={{
+                header: 'custom-drawer-header',
+                body: 'custom-drawer-body'
             }}
-            closeIcon={
-                <div style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    background: '#f5f5f5',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    transition: 'background 0.3s ease'
-                }}
-                    onMouseEnter={(e) => e.target.style.background = '#e6e6e6'}
-                    onMouseLeave={(e) => e.target.style.background = '#f5f5f5'}
-                >
-                    <span style={{
-                        fontSize: '16px',
-                        color: '#666',
-                        fontWeight: 'bold'
-                    }}>
-                        ×
-                    </span>
-                </div>
-            }
         >
-            {/* Custom Header with Logo */}
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                // height: '64px',
-                borderBottom: '1px solid #f0f0f0',
-                padding: '16px 24px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                background: '#fff',
-                zIndex: 1001
-            }}>
-                <div className="NavigationLogoContainer">
-                    <img
-                        src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/InnovateLogoAddSince.png"
-                        alt="Innovate Securities Logo - Trusted Financial Services"
-                        style={{ width: '160px' }}
-                    />
-                </div>
-                <div
-                    onClick={() => setMobileDrawerOpen(false)}
-                    style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        background: '#f5f5f5',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        cursor: 'pointer',
-                        transition: 'background 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => e.target.style.background = '#e6e6e6'}
-                    onMouseLeave={(e) => e.target.style.background = '#f5f5f5'}
-                >
-                    <span style={{
-                        fontSize: '16px',
-                        color: '#666',
-                        background: "transparent",
-                        fontWeight: 'bold'
-                    }}>
-                        ×
-                    </span>
-                </div>
-            </div>
-
-            {/* Content with top margin to account for header */}
-            <div style={{ marginTop: '64px' }}>
-                <div className="NavLinksContainerMobile">
-                    {NavData.map((item) => (
-                        <div key={item.id}>
-                            {item.hasDropdown ? (
-                                <div>
-                                    <div
-                                        onClick={() => handleMobileAccordionToggle(item.id)}
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            padding: '12px 0',
-                                            fontSize: '16px',
-                                            fontWeight: '500',
-                                            color: '#333',
-                                            cursor: 'pointer',
-                                            borderBottom: '1px solid #f0f0f0',
-                                            transition: 'color 0.3s ease'
-                                        }}
-                                        onMouseEnter={(e) => e.target.style.color = '#060568'}
-                                        onMouseLeave={(e) => e.target.style.color = '#333'}
-                                    >
-                                        <span>{item.name}</span>
-                                        {/* <span style={{
-                                            transform: mobileAccordionOpen === item.id ? 'rotate(180deg)' : 'rotate(0deg)',
-                                            transition: 'transform 0.3s ease',
-                                            fontSize: '14px'
-                                        }}>
-                                            ▼
-                                        </span> */}
-                                    </div>
-                                    {mobileAccordionOpen === item.id && (
-                                        <div style={{ paddingLeft: '20px', borderBottom: '1px solid #f0f0f0' }}>
-                                            {item.sublinks.map((sublink) => (
-                                                <Link
-                                                    key={sublink.id}
-                                                    to={sublink.path}
-                                                    onClick={() => handleMobileNavClick(sublink.path)}
-                                                    style={{
-                                                        display: 'block',
-                                                        padding: '10px 0',
-                                                        fontSize: '14px',
-                                                        fontWeight: '400',
-                                                        color: '#666',
-                                                        textDecoration: 'none',
-                                                        transition: 'color 0.3s ease'
-                                                    }}
-                                                    onMouseEnter={(e) => e.target.style.color = '#060568'}
-                                                    onMouseLeave={(e) => e.target.style.color = '#666'}
-                                                >
-                                                    {sublink.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
+            <div className="NavLinksContainerMobile">
+                {NavData.map((item) => (
+                    <div key={item.id}>
+                        {item.hasDropdown ? (
+                            <div>
+                                <div
+                                    onClick={() => handleMobileAccordionToggle(item.id)}
+                                    className="mobile-nav-item"
+                                >
+                                    <span>{item.name}</span>
                                 </div>
-                            ) : (
+                                {mobileAccordionOpen === item.id && (
+                                    <div className="mobile-sublinks">
+                                        {item.sublinks.map((sublink) => (
+                                            <Link
+                                                key={sublink.id}
+                                                to={sublink.path}
+                                                onClick={() => handleMobileNavClick(sublink.path)}
+                                                className="mobile-sublink-item"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {sublink.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
                             <Link
                                 to={item.path}
                                 onClick={() => handleMobileNavClick(item.path)}
-                                style={{
-                                    display: 'block',
-                                    padding: '12px 0',
-                                    fontSize: '16px',
-                                    fontWeight: '500',
-                                    color: '#333',
-                                    textDecoration: 'none',
-                                    borderBottom: '1px solid #f0f0f0',
-                                    transition: 'color 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => e.target.style.color = '#060568'}
-                                onMouseLeave={(e) => e.target.style.color = '#333'}
+                                className="mobile-nav-item"
                             >
                                 {item.name}
                             </Link>
-                            )}
-                        </div>
-                    ))}
-                    <div className="mobile-login-section">
-                        <div 
-                            className="mobile-login-trigger"
-                            onClick={() => handleMobileAccordionToggle(7)}
-                        >
-                            <span>Login</span>
-                            {/* <span className="mobile-accordion-arrow">
-                                {mobileAccordionOpen === 7 ? '▲' : '▼'}
-                            </span> */}
-                        </div>
-                        {mobileAccordionOpen === 7 && (
-                            <div className="mobile-login-dropdown">
-                                <Link
-                                    to="https://bo.innovatesec.com/Account/Login"
-                                    onClick={() => handleMobileNavClick("https://bo.innovatesec.com/Account/Login")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    Equity Market and Derivatives
-                                </Link>
-                                <Link
-                                    to="https://wealthelite.in/client-login"
-                                    onClick={() => handleMobileNavClick("https://wealthelite.in/client-login")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    Mutual Funds and Bonds
-                                </Link>
-                                <Link
-                                    to="https://evoting.cdslindia.com/Evoting/EvotingLogin"
-                                    onClick={() => handleMobileNavClick("https://evoting.cdslindia.com/Evoting/EvotingLogin")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    Depository Services
-                                </Link>
-                                <Link
-                                    to="/services"
-                                    onClick={() => handleMobileNavClick("/services")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    NCD Investment Services
-                                </Link>
-                                <Link
-                                    to="/services"
-                                    onClick={() => handleMobileNavClick("/services")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    Corporate Fixed Deposits
-                                </Link>
-                                <Link
-                                    to="https://ipo.innovatesec.com/"
-                                    onClick={() => handleMobileNavClick("https://ipo.innovatesec.com/")}
-                                    className="mobile-login-item"
-                                    target="_blank"
-                                >
-                                    IPO Submission Services
-                                </Link>
-                            </div>
                         )}
                     </div>
-                    {/* Mobile Contact Us button */}
-                    <div className="BtnContainer">
-                        <button
-                            type="primary"
-                            onClick={openContactModal}
-                            style={{ width: "100%", textAlign: "center", margin: "auto", justifyContent: "center" }}
-                        >
-                            Contact Us
-                        </button>
+                ))}
+                <div className="mobile-login-section">
+                    <div 
+                        className="mobile-login-trigger"
+                        onClick={() => handleMobileAccordionToggle(7)}
+                    >
+                        <span>Login</span>
                     </div>
+                    {mobileAccordionOpen === 7 && (
+                        <div className="mobile-login-dropdown">
+                            <Link
+                                to="https://bo.innovatesec.com/Account/Login"
+                                onClick={() => handleMobileNavClick("https://bo.innovatesec.com/Account/Login")}
+                                className="mobile-login-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Equity Market and Derivatives
+                            </Link>
+                            <Link
+                                to="https://wealthelite.in/client-login"
+                                onClick={() => handleMobileNavClick("https://wealthelite.in/client-login")}
+                                className="mobile-login-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Mutual Funds and Bonds
+                            </Link>
+                            <Link
+                                to="https://evoting.cdslindia.com/Evoting/EvotingLogin"
+                                onClick={() => handleMobileNavClick("https://evoting.cdslindia.com/Evoting/EvotingLogin")}
+                                className="mobile-login-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Depository Services
+                            </Link>
+                            <Link
+                                to="/services"
+                                onClick={() => handleMobileNavClick("/services")}
+                                className="mobile-login-item"
+                            >
+                                NCD Investment Services
+                            </Link>
+                            <Link
+                                to="/services"
+                                onClick={() => handleMobileNavClick("/services")}
+                                className="mobile-login-item"
+                            >
+                                Corporate Fixed Deposits
+                            </Link>
+                            <Link
+                                to="https://ipo.innovatesec.com/"
+                                onClick={() => handleMobileNavClick("https://ipo.innovatesec.com/")}
+                                className="mobile-login-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                IPO Submission Services
+                            </Link>
+                        </div>
+                    )}
+                </div>
+                <div className="BtnContainer">
+                    <button
+                        type="button"
+                        onClick={openContactModal}
+                        style={{ width: "100%", textAlign: "center", margin: "auto", justifyContent: "center" }}
+                    >
+                        Contact Us
+                    </button>
                 </div>
             </div>
         </Drawer>
@@ -348,10 +269,14 @@ const Navbar = () => {
                                     behavior: 'smooth'
                                 });
                             }}>
-                                <Link to="/"> <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/InnovateLogoAddSince.png" alt="Innovate Securities Logo - Trusted Financial Services" /></Link>
+                                <Link to="/">
+                                    <img 
+                                        src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/InnovateLogoAddSince.png" 
+                                        alt="Innovate Securities Logo - Trusted Financial Services" 
+                                    />
+                                </Link>
                             </div>
 
-                            {/* Desktop Navigation */}
                             {!isMobile && (
                                 <>
                                     <div className="NavLinksContainer">
@@ -365,7 +290,6 @@ const Navbar = () => {
                                                     >
                                                         <Link to={item.path} className="dropdown-trigger">
                                                             {item.name}
-                                                            {/* <span className="dropdown-arrow">▼</span> */}
                                                         </Link>
                                                         {activeDropdown === item.id && (
                                                             <div 
@@ -374,34 +298,36 @@ const Navbar = () => {
                                                                 onMouseLeave={handleDropdownMouseLeave}
                                                             >
                                                                 <div>
-                                                                {item.sublinks.map((sublink) => (
-                                                                    <Link
-                                                                        key={sublink.id}
-                                                                        to={sublink.path}
-                                                                        className="dropdown-item"
-                                                                        target="_blank"
-                                                                    >
-                                                                        {sublink.name}
-                                                                    </Link>
-                                                                ))}
+                                                                    {item.sublinks.map((sublink) => (
+                                                                        <Link
+                                                                            key={sublink.id}
+                                                                            to={sublink.path}
+                                                                            className="dropdown-item"
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                        >
+                                                                            {sublink.name}
+                                                                        </Link>
+                                                                    ))}
                                                                 </div>
                                                             </div>
                                                         )}
                                                     </div>
                                                 ) : (
-                                                <Link to={item.path}>{item.name}</Link>
+                                                    <Link to={item.path}>{item.name}</Link>
                                                 )}
                                             </div>
                                         ))}
                                     </div>
                                     <div>
                                         <div className="BtnContainer" style={{ display: 'flex', gap: 12 }}>
-                                            {/* Contact Us - restored original button */}
-                                            <button onClick={openContactModal}>Contact Us</button>
+                                            <button type="button" onClick={openContactModal}>
+                                                Contact Us
+                                            </button>
 
-                                            {/* Login dropdown button */}
                                             <div className="dropdown-container">
                                                 <button 
+                                                    type="button"
                                                     className="login-dropdown-trigger"
                                                     onMouseEnter={() => handleDropdownMouseEnter(7)}
                                                     onMouseLeave={handleDropdownMouseLeave}
@@ -419,6 +345,7 @@ const Navbar = () => {
                                                                 to="https://bo.innovatesec.com/Account/Login"
                                                                 className="dropdown-item"
                                                                 target="_blank"
+                                                                rel="noopener noreferrer"
                                                             >
                                                                 Equity Market and Derivatives
                                                             </Link>
@@ -426,6 +353,7 @@ const Navbar = () => {
                                                                 to="https://wealthelite.in/client-login"
                                                                 className="dropdown-item"
                                                                 target="_blank"
+                                                                rel="noopener noreferrer"
                                                             >
                                                                 Mutual Funds and Bonds
                                                             </Link>
@@ -433,6 +361,7 @@ const Navbar = () => {
                                                                 to="https://evoting.cdslindia.com/Evoting/EvotingLogin"
                                                                 className="dropdown-item"
                                                                 target="_blank"
+                                                                rel="noopener noreferrer"
                                                             >
                                                                 Depository Services
                                                             </Link>
@@ -452,6 +381,7 @@ const Navbar = () => {
                                                                 to="https://ipo.innovatesec.com/"
                                                                 className="dropdown-item"
                                                                 target="_blank"
+                                                                rel="noopener noreferrer"
                                                             >
                                                                 IPO Submission Services
                                                             </Link>
@@ -464,7 +394,6 @@ const Navbar = () => {
                                 </>
                             )}
 
-                            {/* Mobile Hamburger Menu */}
                             {isMobile && (
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <Button
@@ -486,16 +415,14 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Drawer */}
             {renderMobileDrawer()}
 
-            {/* Contact Modal */}
             <Modal
                 open={isContactOpen}
                 onCancel={closeContactModal}
                 footer={null}
                 centered
-                destroyOnHidden
+                destroyOnClose
             >
                 <div style={{ display: 'grid', gap: 12 }}>
                     <h3 style={{ margin: 0 }}>Get in touch</h3>
