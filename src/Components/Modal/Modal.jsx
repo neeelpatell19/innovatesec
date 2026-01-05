@@ -91,7 +91,7 @@ const Modal = () => {
       <div className="image-loader">
         <div className="image-box">
           <img
-            src="/Image/modelImage/innovatesecModel.jpg"
+            src="/Image/modelImage/innovatesecModel-2.jpg"
             alt="First Screen"
             className="first-image"
             loading="eager"
