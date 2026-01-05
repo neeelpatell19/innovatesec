@@ -142,7 +142,7 @@ p {
 .MainContainer {
   display: flex;
   justify-content: center;
-  padding-top: 95px;
+  padding-top: var(--navbar-height,80px);
 
 }
 
@@ -352,6 +352,7 @@ b {
 }
 
 @media (max-width:900px) {
+
   h1 {
     font-size: 50px;
   }
@@ -365,9 +366,6 @@ b {
   }
 
   .MainContainer {
-    display: flex;
-    justify-content: center;
     padding-top: 80px;
-
   }
 }

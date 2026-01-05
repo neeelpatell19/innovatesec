@@ -11,6 +11,7 @@
     transform: none;
     overflow: visible;
     isolation: isolate;
+    --navbar-height: 80px;
 }
 
 .NavigationbarContainer.nav-scrolled  {
