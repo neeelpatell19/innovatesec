@@ -456,7 +456,7 @@ const Navbar = () => {
                                         icon={<MenuOutlined />}
                                         onClick={() => setMobileDrawerOpen(true)}
                                         style={{
-                                            fontSize: '18px',
+                                            fontSize: '30px',
                                             color: '#333',
                                             border: 'none',
                                             background: 'transparent',

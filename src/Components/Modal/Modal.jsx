@@ -86,23 +86,23 @@ const Modal = () => {
     );
   }
 
-  if (showImage) {
-    return (
-      <div className="image-loader">
-        <div className="image-box">
-          <img
-            src="/Image/modelImage/innovatesecModel-2.jpg"
-            alt="First Screen"
-            className="first-image"
-            loading="eager"
-          />
-          <button className="image-close-btn" onClick={handleImageClose}>
-            ×
-          </button>
-        </div>
-      </div>
-    );
-  }
+  // if (showImage) {
+  //   return (
+  //     <div className="image-loader">
+  //       <div className="image-box">
+  //         <img
+  //           src="/Image/modelImage/innovatesecModel-2.jpg"
+  //           alt="First Screen"
+  //           className="first-image"
+  //           loading="eager"
+  //         />
+  //         <button className="image-close-btn" onClick={handleImageClose}>
+  //           ×
+  //         </button>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   if (!isOpen) return null;
 
