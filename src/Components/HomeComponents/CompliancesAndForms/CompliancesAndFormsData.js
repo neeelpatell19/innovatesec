@@ -40,6 +40,36 @@ export const compliancesAndFormsData = {
       size: "3.696 MB",
       viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/ckyc_form.pdf",
     },
+    {
+      id: 7,
+      title: 'DIS Book Issue And Lost Letter Format',
+      size: '314 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/dis_book_issue_and_lost_letter_format.pdf'
+    },
+    {
+      id: 8,
+      title: 'Off Market Reason List',
+      size: "178 KB",
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/off_market_reason_list.pdf'
+    },
+    {
+      id: 9,
+      title: 'Off Market Registration Form',
+      size: '533 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/off_market_reg_form.pdf'
+    },
+    {
+      id: 10,
+      title: 'Transmission Joint Holder Form',
+      size: '111 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_JOINT_HOLDER.pdf'
+    },
+    {
+      id: 11,
+      title: 'Transmission Sole Holder Form',
+      size: "197 KB",
+      viewUrl: 'Image/CompliencesAndFormsDocuments/Forms/TRANSMISSON_SOLE_HOLDER.pdf'
+    }
   ],
   policies: [
     {
