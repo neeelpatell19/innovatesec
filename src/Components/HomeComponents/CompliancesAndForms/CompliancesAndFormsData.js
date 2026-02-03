@@ -62,13 +62,13 @@ export const compliancesAndFormsData = {
       id: 10,
       title: 'Transmission Joint Holder Form',
       size: '111 KB',
-      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_JOINT_HOLDER.pdf'
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_JOINT_HOLDER_FORM.pdf'
     },
     {
       id: 11,
       title: 'Transmission Sole Holder Form',
       size: "197 KB",
-      viewUrl: 'Image/CompliencesAndFormsDocuments/Forms/TRANSMISSON_SOLE_HOLDER.pdf'
+      viewUrl: 'Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_SOLE_HOLDER_FORM.pdf'
     }
   ],
   policies: [
