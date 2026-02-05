@@ -6,6 +6,7 @@ import AdvisioryForInvestors from "../AdvisioryForInvestors/AdvisioryForInvestor
 const Modal = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(true); // modal shows first
+  const [showSecondModal, setShowSecondModal] = useState(false);
   const [showAdvisory, setShowAdvisory] = useState(false); // advisory shows second
   const [showImage, setShowImage] = useState(false); // image shows third
   const [showScrollArrow, setShowScrollArrow] = useState(false);
@@ -13,14 +14,26 @@ const Modal = () => {
 
   const handleModalClose = () => {
     setIsOpen(false);
+      setShowSecondModal(true);
     // Only show advisory modal if not on the advisory page
-    if (location.pathname !== '/advisiory-for-investors') {
-      setShowAdvisory(true);
-    } else {
-      // On advisory page, skip advisory modal and go directly to image
-      setShowImage(true);
-    }
+    // if (location.pathname !== '/advisiory-for-investors') {
+    //   setShowAdvisory(true);
+    // } else {
+    //   // On advisory page, skip advisory modal and go directly to image
+    //   setShowImage(true);
+    // }
   };
+
+  const handleSecondModalClose = () => {
+  setShowSecondModal(false);
+
+  if (location.pathname !== "/advisiory-for-investors") {
+    setShowAdvisory(true);
+  } else {
+    setShowImage(true);
+  }
+};
+
 
   const handleAdvisoryClose = () => {
     setShowAdvisory(false);
@@ -62,6 +75,22 @@ const Modal = () => {
       });
     }
   };
+  if (showSecondModal) {
+  return (
+    <div className="image-loader-second">
+      <div className="image-box-second">
+        <img
+          src="/Image/modelImage/ThirdImg.jpg"
+          alt="Second Screen"
+          className="second-image"
+        />
+        <button className="image-close-btn" onClick={handleSecondModalClose}>
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}
 
   if (showAdvisory) {
     return (
