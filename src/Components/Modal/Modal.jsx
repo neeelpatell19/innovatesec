@@ -14,30 +14,25 @@ const Modal = () => {
 
   const handleModalClose = () => {
     setIsOpen(false);
-      setShowSecondModal(true);
+      
     // Only show advisory modal if not on the advisory page
-    // if (location.pathname !== '/advisiory-for-investors') {
-    //   setShowAdvisory(true);
-    // } else {
-    //   // On advisory page, skip advisory modal and go directly to image
-    //   setShowImage(true);
-    // }
+    if (location.pathname !== '/advisiory-for-investors') {
+      setShowAdvisory(true);
+    } else {
+      // On advisory page, skip advisory modal and go directly to image
+      setShowSecondModal(true);
+    }
   };
 
   const handleSecondModalClose = () => {
   setShowSecondModal(false);
 
-  if (location.pathname !== "/advisiory-for-investors") {
-    setShowAdvisory(true);
-  } else {
-    setShowImage(true);
-  }
 };
 
 
   const handleAdvisoryClose = () => {
     setShowAdvisory(false);
-    setShowImage(true);
+    setShowSecondModal(true);
   };
 
   const handleImageClose = () => {
@@ -75,26 +70,11 @@ const Modal = () => {
       });
     }
   };
-  if (showSecondModal) {
-  return (
-    <div className="image-loader-second">
-      <div className="image-box-second">
-        <img
-          src="/Image/modelImage/ThirdImg.jpg"
-          alt="Second Screen"
-          className="second-image"
-        />
-        <button className="image-close-btn" onClick={handleSecondModalClose}>
-          ×
-        </button>
-      </div>
-    </div>
-  );
-}
+ 
 
   if (showAdvisory) {
     return (
-      <div className="modal-overlay">
+      <div className="modal-overlay" key="advisory-modal">
         <div className="modal-content advisory-modal-content">
           <div className="modal-header">
             <h2>Advisory for Investors</h2>
@@ -114,6 +94,24 @@ const Modal = () => {
       </div>
     );
   }
+
+
+   if (showSecondModal) {
+  return (
+    <div className="image-loader-second">
+      <div className="image-box-second">
+        <img
+          src="/Image/modelImage/ThirdImg.jpg"
+          alt="Second Screen"
+          className="second-image"
+        />
+        <button className="image-close-btn" onClick={handleSecondModalClose}>
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}
 
   // if (showImage) {
   //   return (
