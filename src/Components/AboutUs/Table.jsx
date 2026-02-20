@@ -82,7 +82,7 @@ const Table = () => {
                       </tr>
                       <tr>
                         <td>CEO<br /> <span style={{ fontSize: '12px'}}>( 9 A.M to 6 P.M )</span></td>
-                        <td>Amar M. Parikh<br /> <span style={{ fontSize: '12px'}}>(9 AM to 6 PM)</span></td>
+                        <td>Amar M. Parikh</td>
                         <td>
                           1st Floor, DEVASHISH, 39, Sardar Patel Nagar, Near
                           Opp. ABC-III, Navrangpura, Ahmedabad - 380 009

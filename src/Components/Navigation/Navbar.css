@@ -335,7 +335,8 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
-    min-width: 600px;          /* Prevents table from squishing */
+   table-layout: fixed;
+    /* min-width: 600px;          Prevents table from squishing */
 }
 
 .escalation-table thead tr {
