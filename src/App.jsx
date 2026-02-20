@@ -42,7 +42,7 @@ function App() {
           <Route path='/services/:serviceName' element={<SingleService />} />
           <Route path='/directors' element={<Directors />} />
           <Route path='/online-desk' element={<OnlineDesk />} />
-          <Route path='/compliances-and-forms' element={<CompliancesAndForms />} />
+          <Route path='/compliances' element={<CompliancesAndForms />} />
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/advisiory-for-investors' element={<AdvisioryForInvestors />} />

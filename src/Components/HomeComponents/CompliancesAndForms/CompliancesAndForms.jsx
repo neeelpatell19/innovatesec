@@ -125,7 +125,7 @@ const CompliancesAndForms = () => {
                                     <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/AboutHome.png" alt="Forms Icon" />
                                 </div>
                                 <div>
-                                    <p>Compliances & Forms</p>
+                                    <p>Compliances</p>
                                 </div>
                             </div>
                         </div>

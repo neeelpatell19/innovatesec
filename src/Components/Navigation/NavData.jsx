@@ -26,8 +26,8 @@ const NavData = [
     },
     {
         id: 6,
-        name: "Compliances and Forms",
-        path: "/compliances-and-forms",
+        name: "Compliances",
+        path: "/compliances",
     },
 
     // {
