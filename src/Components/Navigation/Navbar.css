@@ -313,6 +313,85 @@
     border-bottom: none;
 }
 
+/* contact modal */
+.contact-modal .ant-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.contact-modal-content {
+    padding: 8px 0;
+}
+
+.contact-table-wrapper {
+    overflow-x: auto;          /* Horizontal scroll on small screens */
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+}
+
+.escalation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 600px;          /* Prevents table from squishing */
+}
+
+.escalation-table thead tr {
+    background-color: #003566; /* Dark blue header */
+    color: #ffffff;
+}
+
+.escalation-table thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.escalation-table thead th:last-child {
+    border-right: none;
+}
+
+.escalation-table tbody tr {
+    border-bottom: 1px solid #e8e8e8;
+    transition: background-color 0.2s;
+}
+
+.escalation-table tbody tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+.escalation-table tbody tr:hover {
+    background-color: #eaf0fb;
+}
+
+.escalation-table tbody td {
+    padding: 11px 14px;
+    vertical-align: top;
+    color: #333;
+    line-height: 1.5;
+    border-right: 1px solid #e8e8e8;
+}
+
+.escalation-table tbody td:last-child {
+    border-right: none;
+}
+
+.escalation-table a {
+    color: #003566;
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.escalation-table a:hover {
+    color: #0057b8;
+    text-decoration: underline;
+}
+
 /* Only apply hover on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
     .mobile-login-item:hover {
@@ -331,5 +410,15 @@
 @media (max-width: 1016px) {
     .NavigationContainer {
         padding: 10px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .escalation-table {
+        font-size: 12px;
+    }
+    .escalation-table thead th, 
+    .escalation-table tbody td {
+        padding: 9px;
     }
 }

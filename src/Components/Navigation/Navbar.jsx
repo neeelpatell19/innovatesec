@@ -4,6 +4,7 @@ import NavData from "./NavData";
 import { Link } from "react-router-dom";
 import { Drawer, Button, Modal } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
+import Table from "../AboutUs/Table";
 
 const Navbar = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -477,24 +478,12 @@ const Navbar = () => {
                 onCancel={closeContactModal}
                 footer={null}
                 centered
+                title="Contact Us"
                 destroyOnClose
+                width={1220}
+                className="contact-modal"
             >
-                <div style={{ display: 'grid', gap: 12 }}>
-                    <h3 style={{ margin: 0 }}>Get in touch</h3>
-                    <p style={{ margin: 0, color: '#666' }}>Choose how you'd like to contact us:</p>
-                    <div style={{ display: 'grid', gap: 10, marginTop: 8 }}>
-                        <a href="tel:07926474500" style={{ textDecoration: 'none' }}>
-                            <button className="NewsletterButton" style={{ width: '100%' }} onClick={closeContactModal}>
-                                Call now: 079-2647-4500
-                            </button>
-                        </a>
-                        <a href="mailto:innovate95@rediffmail.com" style={{ textDecoration: 'none' }}>
-                            <button className="NewsletterButton secondary" style={{ width: '100%' }} onClick={closeContactModal}>
-                                Email us: innovate95@rediffmail.com
-                            </button>
-                        </a>
-                    </div>
-                </div>
+                <Table />
             </Modal>
         </div>
     )
