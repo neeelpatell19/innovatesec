@@ -19,6 +19,10 @@ import Disclaimer from './Components/Disclaimer/Disclaimer'
 import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy'
 import AdvisioryForInvestors from './Components/AdvisioryForInvestors/AdvisioryForInvestors'
 import InvestorComplaints from './Components/InvestorComplaints/InvestorComplaints'
+import FormsPage from './Components/HomeComponents/CompliancesAndForms/FormsPage'
+import PoliciesPage from './Components/HomeComponents/CompliancesAndForms/PoliciesPage'
+import InvestorChartersPage from './Components/HomeComponents/CompliancesAndForms/InvestorChartersPage'
+import ComplianceDataPage from './Components/HomeComponents/CompliancesAndForms/ComplianceDataPage'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -43,6 +47,10 @@ function App() {
           <Route path='/directors' element={<Directors />} />
           <Route path='/online-desk' element={<OnlineDesk />} />
           <Route path='/compliances' element={<CompliancesAndForms />} />
+          <Route path='/compliances/forms' element={<FormsPage />} />
+          <Route path='/compliances/policies' element={<PoliciesPage />} />
+          <Route path='/compliances/investor-charters' element={<InvestorChartersPage />} />
+          <Route path='/compliances/compliance-data' element={<ComplianceDataPage />} />
           <Route path='/disclaimer' element={<Disclaimer />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/advisiory-for-investors' element={<AdvisioryForInvestors />} />

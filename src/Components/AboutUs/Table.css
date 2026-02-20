@@ -1,8 +1,11 @@
 /* Escalation Matrix Styles */
 .escalation-matrix-container {
   width: 100%;
-  overflow-x: visible;
   margin-top: 30px;
+}
+
+.escalation-matrix-container::-webkit-scrollbar {
+  display: none;
 }
 
 .escalation-table-wrapper {
