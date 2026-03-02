@@ -225,15 +225,15 @@ export const compliancesAndFormsData = {
       title: "Investor Charter for Stock Brokers",
       size: "644 KB",
       viewUrl:
-        "/Image/CompliencesAndFormsDocuments/Charters/investor_charter_for_stock_brokers.pdf",
+        "/Image/CompliencesAndFormsDocuments/Charters/investor_charter_for_stock_brokers_feb_2026.pdf",
     },
     {
       id: 2,
       title:
-        "Investor Charter for Depositories and Depository Participants - January-2026",
+        "Investor Charter for Depositories and Depository Participants - February-2026",
       size: "494 KB",
       viewUrl:
-        "/Image/CompliencesAndFormsDocuments/Charters/INVESTOR_CHARTER_JANUARY-2026.pdf",
+        "/Image/CompliencesAndFormsDocuments/Charters/INVESTOR_CHARTER_FEBRUARY-2026.pdf",
     },
   ],
   compliance: [
