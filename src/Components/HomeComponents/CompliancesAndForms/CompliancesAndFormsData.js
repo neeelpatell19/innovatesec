@@ -225,7 +225,7 @@ export const compliancesAndFormsData = {
       title: "Investor Charter for Stock Brokers",
       size: "644 KB",
       viewUrl:
-        "/Image/CompliencesAndFormsDocuments/Charters/investor_charter_for_stock_brokers_feb_2026.pdf",
+        "/Image/CompliencesAndFormsDocuments/Charters/investor_charter_for_stock_brokers.pdf",
     },
     {
       id: 2,
