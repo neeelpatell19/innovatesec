@@ -209,3 +209,104 @@
         padding: 16px;
     }
 }
+
+/* ...existing code... */
+
+/* ── Landing Cards ── */
+.LandingCardsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.LandingCard {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 36px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #fff;
+}
+
+.LandingCard:hover {
+    border-color: var(--brand-color);
+    box-shadow: 0 6px 24px rgba(0, 53, 102, 0.12);
+    transform: translateY(-4px);
+}
+
+.LandingCardIcon {
+    font-size: 40px;
+    color: var(--brand-color);
+    margin-bottom: 16px;
+}
+
+.LandingCardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.LandingCardDesc {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* ── Sub-page header ── */
+.SubPageHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.BackButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid var(--brand-color);
+    color: var(--brand-color);
+    padding: 7px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.BackButton:hover {
+    background: var(--brand-color);
+    color: #fff;
+}
+
+.SubPageTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .LandingCardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .LandingCardsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.margin-top {
+    padding-top: 20px;
+}
+
+.bottom-margin {
+    margin-bottom: 20px
+}

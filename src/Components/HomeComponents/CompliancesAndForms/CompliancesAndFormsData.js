@@ -40,6 +40,36 @@ export const compliancesAndFormsData = {
       size: "3.696 MB",
       viewUrl: "/Image/CompliencesAndFormsDocuments/Forms/ckyc_form.pdf",
     },
+    {
+      id: 7,
+      title: 'DIS Book Issue And Lost Letter Format',
+      size: '314 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/dis_book_issue_and_lost_letter_format.pdf'
+    },
+    {
+      id: 8,
+      title: 'Off Market Reason List',
+      size: "178 KB",
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/off_market_reason_list.pdf'
+    },
+    {
+      id: 9,
+      title: 'Off Market Registration Form',
+      size: '533 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/off_market_reg_form.pdf'
+    },
+    {
+      id: 10,
+      title: 'Transmission Joint Holder Form',
+      size: '111 KB',
+      viewUrl: '/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_JOINT_HOLDER_FORM.pdf'
+    },
+    {
+      id: 11,
+      title: 'Transmission Sole Holder Form',
+      size: "197 KB",
+      viewUrl: 'Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_SOLE_HOLDER_FORM.pdf'
+    }
   ],
   policies: [
     {
@@ -200,10 +230,10 @@ export const compliancesAndFormsData = {
     {
       id: 2,
       title:
-        "Investor Charter for Depositories and Depository Participants - november 2025",
-      size: "483 KB",
+        "Investor Charter for Depositories and Depository Participants - February-2026",
+      size: "494 KB",
       viewUrl:
-        "/Image/CompliencesAndFormsDocuments/Charters/INVESTOR_CHARTER_NOVEMBER-2025.pdf",
+        "/Image/CompliencesAndFormsDocuments/Charters/INVESTOR_CHARTER_FEBRUARY-2026.pdf",
     },
   ],
   compliance: [

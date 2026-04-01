@@ -172,7 +172,7 @@ const NewsLetters = () => {
                 onCancel={closeContactModal}
                 footer={null}
                 centered
-                destroyOnClose
+                destroyOnHidden
             >
                 <div style={{ display: 'grid', gap: 12 }}>
                     <h3 style={{ margin: 0 }}>Get in touch</h3>

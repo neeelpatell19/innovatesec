@@ -9,6 +9,7 @@ body {
   background-color: white;
   --stroke-color: #e9e9e9;
   --brand-color: #002147;
+  /* --navbar-height: 80px; */
   font-family: "Work Sans", sans-serif;
   /* height: 600vh; */
 }
@@ -142,8 +143,7 @@ p {
 .MainContainer {
   display: flex;
   justify-content: center;
-  padding-top: 95px;
-
+  /* padding-top: 80px; */
 }
 
 .w-100 {
@@ -352,6 +352,7 @@ b {
 }
 
 @media (max-width:900px) {
+
   h1 {
     font-size: 50px;
   }
@@ -365,9 +366,6 @@ b {
   }
 
   .MainContainer {
-    display: flex;
-    justify-content: center;
     padding-top: 80px;
-
   }
 }

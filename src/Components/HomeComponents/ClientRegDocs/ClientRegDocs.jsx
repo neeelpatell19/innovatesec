@@ -40,8 +40,8 @@ const ClientRegDocs = () => {
               {languages.map((lang) => (
                 <a
                   key={lang.name}
-                  href={`/images/ClientRegDocs/${lang.file}`}
-                  download
+                  href={`/Image/ClientRegDocs/${lang.file}`}
+                  download={lang.file}
                   className="download-item"
                 >
                   <TbDownload className="icon" />
