@@ -12,8 +12,8 @@ const InvestorCharters = () => {
         },
         {
             id: 2,
-            title: "Investor Charter for Depositories and Depository Participants - March 2026",
-            pdfLink: "/Image/InvestorCharter/INVESTOR_CHARTER_MARCH-2026.pdf",
+            title: "Investor Charter for Depositories and Depository Participants - April 2026",
+            pdfLink: "/Image/InvestorCharter/INVESTOR_CHARTER_APRIL-2026.pdf",
             image: "https://images.unsplash.com/photo-1723158597314-4760daf1aaae?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
     ]
