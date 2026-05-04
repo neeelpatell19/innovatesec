@@ -309,7 +309,7 @@ export const compliancesAndFormsData = {
     {
       id: 10,
       title: "All Compliance Details",
-      size: "1.0 MB",
+      size: "560 KB",
       viewUrl:
         "/Image/CompliencesAndFormsDocuments/CompliancesData/All_Compliance_Details.pdf",
     },
