@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { notification } from 'antd'
 import HomeComponents from './Components/HomeComponents/HomeComponents'
 import Navbar from './Components/Navigation/Navbar'
@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       {contextHolder}
-      <BrowserRouter>
+      <HashRouter>
         <Modal />
         <Navbar />
         <Routes>
@@ -59,7 +59,7 @@ function App() {
         
         <NewsLetters />
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }
