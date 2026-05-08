@@ -75,6 +75,13 @@ export const compliancesAndFormsData = {
       viewUrl:
         "Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_SOLE_HOLDER_FORM.pdf",
     },
+    {
+      id: 12,
+      title: "SARAL AOF",
+      size: "272 KB",
+      viewUrl:
+        "/Image/CompliencesAndFormsDocuments/Forms/SARAL_AOF.pdf",
+    },
   ],
   policies: [
     {
