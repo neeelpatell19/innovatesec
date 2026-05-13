@@ -140,10 +140,13 @@ const HeroHome = () => {
             title: "Pay an upfront margin of 20% of the transaction value to trade in the cash market segment."
         },
         {
-            title: "IPO applications: no cheques required. Provide your bank account number and sign (ASBA) to authorize your bank to block funds; the money stays in your account until allotment."
+            title: "No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorise your bank to make payment in case of allotment. No worries for refund as the money remains in investor's account."
         },
         {
-            title: "Prevent unauthorized transactions: update your mobile number and email ID with your stockbroker/Depository Participant (DP). Receive transaction alerts directly from the Exchange/DP via SMS/email at day-end."
+            title: "KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered intermediary (broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary."
+        },
+        {
+            title: "Prevent Unauthorized Transactions in your demat account --> Update your Mobile Number with your Depository Participant. Receive alerts on your Registered Mobile for all debit and other important transactions in your demat account directly from CDSL on the same day......................issued in the interest of investors."
         },
         {
             title: "Effective 1 September 2020, stockbrokers may accept securities as margin from clients only through a pledge in the depository system."

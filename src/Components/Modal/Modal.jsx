@@ -96,22 +96,22 @@ const Modal = () => {
   }
 
 
-   if (showSecondModal) {
-  return (
-    <div className="image-loader-second">
-      <div className="image-box-second">
-        <img
-          src="/Image/modelImage/ThirdImg.jpg"
-          alt="Second Screen"
-          className="second-image"
-        />
-        <button className="image-close-btn" onClick={handleSecondModalClose}>
-          ×
-        </button>
-      </div>
-    </div>
-  );
-}
+//    if (showSecondModal) {
+//   return (
+//     <div className="image-loader-second">
+//       <div className="image-box-second">
+//         <img
+//           src="/Image/modelImage/ThirdImg.jpg"
+//           alt="Second Screen"
+//           className="second-image"
+//         />
+//         <button className="image-close-btn" onClick={handleSecondModalClose}>
+//           ×
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
 
   // if (showImage) {
   //   return (
