@@ -154,6 +154,9 @@ const HeroHome = () => {
         {
             title: "New client login: https://bo.innovatesec.com. Username: your Trading Code; Password: your PAN."
         },
+        {
+            title: "We have provide online closure and modification facility at our end. For more information, please contact us."
+        },
     ];
 
 

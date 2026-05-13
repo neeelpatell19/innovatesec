@@ -24,7 +24,7 @@ export const compliancesAndFormsData = {
     {
       id: 4,
       title: "Account Closure Form",
-      size: "204.65 KB",
+      size: "162 KB",
       viewUrl:
         "/Image/CompliencesAndFormsDocuments/Forms/account_closure_form.pdf",
     },
@@ -64,16 +64,16 @@ export const compliancesAndFormsData = {
     {
       id: 10,
       title: "Transmission Joint Holder Form",
-      size: "111 KB",
+      size: "336 KB",
       viewUrl:
         "/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_JOINT_HOLDER_FORM.pdf",
     },
     {
       id: 11,
       title: "Transmission Sole Holder Form",
-      size: "197 KB",
+      size: "194 KB",
       viewUrl:
-        "Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_SOLE_HOLDER_FORM.pdf",
+        "/Image/CompliencesAndFormsDocuments/Forms/TRANSMISSION_SOLE_HOLDER_FORM.pdf",
     },
   ],
   policies: [
