@@ -1,3 +1,12 @@
+export const scoresDisclosure = {
+    title: "Disclosure regarding Filing Complaints on SCORES – Easy & Quick including:",
+    points: [
+        "Registration on SCORES portal",
+        "Mandatory details for filing complaints (Name, PAN, Address, Mobile Number, Email ID)",
+        "Benefits (Effective communication & Speedy redressal of grievances)",
+    ],
+};
+
 export const onlineDeskItems = [
     {
         title: "Open Your Account Online",
@@ -21,7 +30,8 @@ export const onlineDeskItems = [
         title: "SCORES - SEBI Complaints Redress System",
         cta: "Go to the website",
         href: "https://scores.sebi.gov.in/",
-        logo: "/Image/OnlineDeskImages/InnovateDesk2.png"
+        logo: "/Image/OnlineDeskImages/InnovateDesk2.png",
+        disclosure: scoresDisclosure,
     },
     {
         title: "SEBI Investor Awareness Website",
