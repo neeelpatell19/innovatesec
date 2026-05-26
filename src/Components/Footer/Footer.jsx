@@ -2,7 +2,8 @@ import React from "react";
 import "./Footer.css";
 import { Row, Col } from "antd";
 import NavData from "../Navigation/NavData";
-import { FaFacebook, FaLinkedin, FaGooglePlay, FaApple } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import AppStoreButtons from "../AppStoreButtons/AppStoreButtons";
 import { AiFillInstagram } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const Footer = () => {
@@ -151,30 +152,10 @@ const Footer = () => {
             </Col>
           </Row>
           <div className="FooterAppStoreRow">
-            <a
-              href="https://apps.apple.com/app/id6762111197"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="AppStoreBtn"
-            >
-              <FaApple className="AppStoreIcon" />
-              <div className="AppStoreBtnText">
-                <span className="AppStoreBtnSubtitle">Download on the</span>
-                <span className="AppStoreBtnTitle">App Store</span>
-              </div>
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="AppStoreBtn"
-            >
-              <FaGooglePlay className="AppStoreIcon" />
-              <div className="AppStoreBtnText">
-                <span className="AppStoreBtnSubtitle">Get it on</span>
-                <span className="AppStoreBtnTitle">Google Play</span>
-              </div>
-            </a>
+            <p className="FooterAppStoreRow__title">
+              Download our app — available on iOS &amp; Android
+            </p>
+            <AppStoreButtons />
           </div>
           <hr />
           <div className="CopyRightContainer">
