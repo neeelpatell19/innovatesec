@@ -282,8 +282,8 @@
   .AppStoreBtn {
     min-width: unset;
     width: 100%;
-    max-width: 280px;
-    justify-content: center;
+    max-width: 260px;
+    justify-content: flex-start;
   }
 }
 
