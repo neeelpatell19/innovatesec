@@ -76,18 +76,6 @@ const AppDownload = () => {
                         {/* Store badges */}
                         <div className="AppDownload__badges">
                             <a
-                                href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="AppDownload__badge"
-                            >
-                                <FaGooglePlay className="AppDownload__badge-icon" />
-                                <div className="AppDownload__badge-text">
-                                    <span className="AppDownload__badge-sub">Get it on</span>
-                                    <span className="AppDownload__badge-title">Google Play</span>
-                                </div>
-                            </a>
-                            <a
                                 href="https://apps.apple.com/app/id6762111197"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -97,6 +85,18 @@ const AppDownload = () => {
                                 <div className="AppDownload__badge-text">
                                     <span className="AppDownload__badge-sub">Download on the</span>
                                     <span className="AppDownload__badge-title">App Store</span>
+                                </div>
+                            </a>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="AppDownload__badge"
+                            >
+                                <FaGooglePlay className="AppDownload__badge-icon" />
+                                <div className="AppDownload__badge-text">
+                                    <span className="AppDownload__badge-sub">Get it on</span>
+                                    <span className="AppDownload__badge-title">Google Play</span>
                                 </div>
                             </a>
                         </div>

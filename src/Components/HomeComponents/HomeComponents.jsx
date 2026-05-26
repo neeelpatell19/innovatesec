@@ -11,10 +11,10 @@ import AppDownload from './AppDownload/AppDownload'
 const HomeComponents = () => {
     return (
         <>
+            <AppDownload />
             <HeroHome />
             <ServicesHome />
             <HomeAbout />
-            <AppDownload />
             <InvestorCharters />
             <ClientRegDocs />
             <BankDetails />

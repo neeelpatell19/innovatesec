@@ -152,18 +152,6 @@ const Footer = () => {
           </Row>
           <div className="FooterAppStoreRow">
             <a
-              href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="AppStoreBtn"
-            >
-              <FaGooglePlay className="AppStoreIcon" />
-              <div className="AppStoreBtnText">
-                <span className="AppStoreBtnSubtitle">Get it on</span>
-                <span className="AppStoreBtnTitle">Google Play</span>
-              </div>
-            </a>
-            <a
               href="https://apps.apple.com/app/id6762111197"
               target="_blank"
               rel="noopener noreferrer"
@@ -173,6 +161,18 @@ const Footer = () => {
               <div className="AppStoreBtnText">
                 <span className="AppStoreBtnSubtitle">Download on the</span>
                 <span className="AppStoreBtnTitle">App Store</span>
+              </div>
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="AppStoreBtn"
+            >
+              <FaGooglePlay className="AppStoreIcon" />
+              <div className="AppStoreBtnText">
+                <span className="AppStoreBtnSubtitle">Get it on</span>
+                <span className="AppStoreBtnTitle">Google Play</span>
               </div>
             </a>
           </div>
