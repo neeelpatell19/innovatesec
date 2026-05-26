@@ -6,6 +6,7 @@ import ProgressReach from './ProgressReachComponent/ProgressReach'
 import InvestorCharters from './InvestorCharters/InvestorCharters'
 import ClientRegDocs from './ClientRegDocs/ClientRegDocs'
 import BankDetails from '../BankDetails/BankDetails'
+import AppDownload from './AppDownload/AppDownload'
 
 const HomeComponents = () => {
     return (
@@ -13,6 +14,7 @@ const HomeComponents = () => {
             <HeroHome />
             <ServicesHome />
             <HomeAbout />
+            <AppDownload />
             <InvestorCharters />
             <ClientRegDocs />
             <BankDetails />

@@ -163,6 +163,7 @@
 .QRCodeContainer {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -259,4 +260,99 @@
     font-size: 16px;
     margin-bottom: 15px;
   }
+}
+
+/* Footer app store row — centered below the column grid */
+.FooterAppStoreRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .FooterAppStoreRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .AppStoreBtn {
+    min-width: unset;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+.AppStoreButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.AppStoreBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #002f6c 0%, var(--brand-color) 100%);
+  color: #fff;
+  text-decoration: none;
+  min-width: 170px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 33, 71, 0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.AppStoreBtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.AppStoreBtn:hover::after {
+  left: 130%;
+}
+
+.AppStoreBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 33, 71, 0.28);
+  color: #fff;
+}
+
+.AppStoreIcon {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.AppStoreBtnText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.AppStoreBtnSubtitle {
+  font-size: 10px;
+  font-weight: 400;
+  color: #ccc;
+}
+
+.AppStoreBtnTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
 }
