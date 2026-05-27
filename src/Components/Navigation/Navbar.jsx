@@ -14,6 +14,8 @@ const Navbar = () => {
     const [isContactOpen, setIsContactOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [mobileAccordionOpen, setMobileAccordionOpen] = useState(null);
+
+    const SIGN_UP_URL = "https://bo.innovatesec.com/EKYC/EKYCAccountOpening";
     
     // Use refs instead of state for values that don't need to trigger re-renders
     const lastScrollYRef = useRef(0);
@@ -27,6 +29,14 @@ const Navbar = () => {
             setMobileDrawerOpen(false);
         }
         setIsContactOpen(true);
+    };
+
+    const openSignUp = () => {
+        // Close drawer if open on mobile
+        if (mobileDrawerOpen) {
+            setMobileDrawerOpen(false);
+        }
+        window.open(SIGN_UP_URL, "_blank", "noopener,noreferrer");
     };
     
     const closeContactModal = () => setIsContactOpen(false);
@@ -300,6 +310,17 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
+
+                <Link
+                    to={SIGN_UP_URL}
+                    onClick={() => handleMobileNavClick(SIGN_UP_URL)}
+                    className="mobile-login-trigger mobile-signup-trigger"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Sign Up</span>
+                </Link>
+
                 <div className="BtnContainer">
                     <button
                         type="button"
@@ -379,6 +400,10 @@ const Navbar = () => {
                                         <div className="BtnContainer" style={{ display: 'flex', gap: 12 }}>
                                             <button type="button" onClick={openContactModal}>
                                                 Contact Us
+                                            </button>
+
+                                            <button type="button" className="login-dropdown-trigger" onClick={openSignUp}>
+                                                Sign Up
                                             </button>
 
                                             <div className="dropdown-container">
