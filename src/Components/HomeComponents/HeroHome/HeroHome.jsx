@@ -164,7 +164,7 @@ const HeroHome = () => {
 
 
     return (
-        <div ref={sectionRef}>
+        <div className="HeroHomeSection" ref={sectionRef}>
             <div className="MainContainer">
                 <div className="Container">
                     <div className="FlexContainer " ref={containerRef}>

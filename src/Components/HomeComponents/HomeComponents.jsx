@@ -7,12 +7,15 @@ import InvestorCharters from './InvestorCharters/InvestorCharters'
 import ClientRegDocs from './ClientRegDocs/ClientRegDocs'
 import BankDetails from '../BankDetails/BankDetails'
 import AppDownload from './AppDownload/AppDownload'
+import './HomeSplash/HomeSplash.css'
 
 const HomeComponents = () => {
     return (
         <>
-            <AppDownload />
-            <HeroHome />
+            <div className="HomeSplash">
+                <AppDownload />
+                <HeroHome />
+            </div>
             <ServicesHome />
             <HomeAbout />
             <InvestorCharters />

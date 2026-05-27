@@ -1,89 +1,33 @@
 .AppDownloadSection {
-  background-color: #f7f7f7;
-  padding: 48px 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.AppDownloadSection.AppDownload--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Override global .Container min-height (400px) for this compact block */
-.AppDownloadSection .Container {
-  min-height: 0;
-}
-
-.AppDownload__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  padding: 12px 16px 0;
+  background-color: #ffffff;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.AppDownload__label {
-  justify-content: center;
-}
-
-.AppDownload__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .AppDownload__title {
-  font-size: 26px;
-  font-weight: 600;
   margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: #111;
+  text-align: center;
   line-height: 1.2;
-}
-
-.AppDownload__subtitle {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.45;
-  color: #4d4d4d;
-}
-
-.AppDownload__inner .AppStoreButtons {
-  max-width: 100%;
-}
-
-@media (max-width: 900px) {
-  .AppDownloadSection {
-    padding: 40px 0;
-  }
-
-  .AppDownload__inner {
-    padding: 0 10px;
-  }
 }
 
 @media (max-width: 640px) {
   .AppDownloadSection {
-    padding: 28px 0 36px;
-  }
-
-  .AppDownload__inner {
-    gap: 12px;
+    padding: 10px 12px 6px;
+    gap: 10px;
   }
 
   .AppDownload__title {
-    font-size: 22px;
-  }
-
-  .AppDownload__subtitle {
-    font-size: 13px;
+    font-size: 18px;
   }
 }
