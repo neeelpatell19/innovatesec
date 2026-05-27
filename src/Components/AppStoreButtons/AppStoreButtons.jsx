@@ -6,7 +6,11 @@ const APP_STORE_URL = "https://apps.apple.com/app/id6762111197";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.innovate&pcampaignid=web_share";
 
-const AppStoreButtons = ({ simple = false }) => (
+const AppStoreButtons = ({
+  simple = false,
+  iosLabel = "Download iOS App",
+  androidLabel = "Download Android App",
+}) => (
   <div className={`AppStoreButtons${simple ? " AppStoreButtons--simple" : ""}`}>
     <a
       href={APP_STORE_URL}
@@ -16,11 +20,10 @@ const AppStoreButtons = ({ simple = false }) => (
     >
       <FaApple className="AppStoreButtons__icon" aria-hidden />
       {simple ? (
-        <span className="AppStoreButtons__label">iOS APP</span>
+        <span className="AppStoreButtons__label">{iosLabel}</span>
       ) : (
         <div className="AppStoreButtons__text">
-          <span className="AppStoreButtons__sub">Download on the</span>
-          <span className="AppStoreButtons__title">App Store</span>
+          <span className="AppStoreButtons__title">{iosLabel}</span>
         </div>
       )}
     </a>
@@ -32,11 +35,10 @@ const AppStoreButtons = ({ simple = false }) => (
     >
       <FaGooglePlay className="AppStoreButtons__icon" aria-hidden />
       {simple ? (
-        <span className="AppStoreButtons__label">ANDROID APP</span>
+        <span className="AppStoreButtons__label">{androidLabel}</span>
       ) : (
         <div className="AppStoreButtons__text">
-          <span className="AppStoreButtons__sub">Get it on</span>
-          <span className="AppStoreButtons__title">Google Play</span>
+          <span className="AppStoreButtons__title">{androidLabel}</span>
         </div>
       )}
     </a>
