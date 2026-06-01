@@ -274,15 +274,6 @@
   margin: 0 auto;
 }
 
-.FooterAppStoreRow__title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: #4d4d4d;
-  text-align: center;
-  max-width: 360px;
-}
 
 .FooterAppStoreRow .AppStoreButtons {
   width: 100%;

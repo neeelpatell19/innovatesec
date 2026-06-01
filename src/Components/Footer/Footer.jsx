@@ -152,9 +152,6 @@ const Footer = () => {
             </Col>
           </Row>
           <div className="FooterAppStoreRow">
-            <p className="FooterAppStoreRow__title">
-              Download our app — available on iOS &amp; Android
-            </p>
             <AppStoreButtons />
           </div>
           <hr />
