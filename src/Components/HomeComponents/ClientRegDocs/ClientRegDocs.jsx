@@ -73,6 +73,19 @@ const ClientRegDocs = () => {
               >
                 https://www.sebi.gov.in/reports-and-statistics/research/jan-2023/study-analysis-of-profit-and-loss-of-individual-traders-dealing-in-equity-fando-segment_67525.html
               </a>
+
+              <p className="study-title">
+                SMART ODR - Securities Market Approach for Resolution Through ODR Portal
+              </p>
+
+              <a
+                href="https://smartodr.in/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="study-link"
+              >
+                https://smartodr.in/login
+              </a>
             </div>
           </div>
         </div>
