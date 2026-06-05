@@ -35,6 +35,11 @@ const InvestorComplaints = () => {
       month: "April 2026",
       pdfLink: "/InvestorComplaints/APRIL_2026.pdf",
     },
+    {
+      id: 12,
+      month: "May 2026",
+      pdfLink: "/InvestorComplaints/MAY_2026.pdf",
+    },
   ];
 
   return (
